@@ -264,7 +264,7 @@
                 <span class="section-subtitle db tc sub-title">Top seller in the week</span>
             </div>
             <div class="products nt_products_holder row fl_center row_pr_2 cdt_des_1 round_cd_false nt_cover ratio1_1 position_8 space_30 equal_nt">
-               @forelse ($bestSellers->take(8) as $new)
+               @forelse ($bestSellers as $new)
                <div class="col-lg-3 col-md-3 col-6 pr_animated done mt__30 pr_grid_item product nt_pr desgin__2 tc">
                 <div class="product-inner pr">
                     <div class="product-image pr oh lazyload">
@@ -272,10 +272,10 @@
                             <span class="onsale nt_label"><span>-29%</span></span>
                         </span> --}}
                         <a class="db" href="product-detail-layout-01.html">
-                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
+                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->get_product_info->id ?? '' }}.jpg"></div>
                         </a>
                         <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
-                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
+                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->get_product_info->id ?? '' }}.jpg"></div>
                         </div>
                         {{-- <div class="nt_add_w ts__03 pa">
                             <a href="#" class="wishlistadd cb chp ttip_nt tooltip_right">
@@ -293,14 +293,14 @@
                     </div>
                     <div class="product-info mt__15">
                         <h3 class="product-title pr fs__14 mg__0 fwm">
-                            <a class="cd chp" href="product-detail-layout-01.html">{{ $new->prod_title_en }}</a>
+                            <a class="cd chp" href="product-detail-layout-01.html">{{ $new->get_product_info->prod_title_en ?? '' }}</a>
                         </h3>
-                        <span class="price dib mb__5"><ins>QAR {{ $new->price }}</ins></span>
+                        <span class="price dib mb__5"><ins>QAR {{ $new->get_product_info->price ?? '' }}</ins></span>
                     </div>
                 </div>
             </div>
             @empty
-                <h3>Best Price products coming soon.</h3>
+                <h3>Best selling products coming soon.</h3>
                @endforelse
             </div>
             <div class="products-footer tc mt__40">
