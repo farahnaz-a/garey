@@ -11,7 +11,7 @@
             <div class="row equal_nt">
                 <div class="col-12">
                     <div class="nt_img_txt oh pr middle center">
-                        <div class="js_full_ht4 lazyload item__position bg_rp_norepeat bg_sz_cover center" data-bgset="http://gareystore.com/web_images/home/{{ $banner->banner_img }}"></div>
+                        <div class="js_full_ht4 lazyload item__position bg_rp_norepeat bg_sz_cover center" data-bgset="{{ asset('web_images/home') }}/{{ $banner->banner_img }}"></div>
                         <div class="txt_content pa t__0 l__0 b__0 r__0 caption-w-2 flex column shadow_wrap tc pe_none z__100">
                             <div class="pa pa_txts">
                                 <h3 class="mt__0 mg__0 lh__1" style="color: white;">{{ $banner->description }}</h3>
@@ -71,7 +71,7 @@
                 <div class="cat_grid_item cat_space_item cat_grid_item_1 col-lg-4 col-md-4 col-12">
                     <div class="cat_grid_item__content pr oh">
                         <a href="shop-left-sidebar.html" class="db cat_grid_item__link">
-                            <div class="cat_grid_item__overlay item__position nt_bg_lz lazyload center" data-bgset="http://gareystore.com/web_images/categories/{{ $category->id }}.jpg"></div>
+                            <div class="cat_grid_item__overlay item__position nt_bg_lz lazyload center" data-bgset="{{ asset('web_images/categories') }}/{{ $category->id }}.jpg"></div>
                         </a>
                         <div class="cat_grid_item__wrapper pe_none">
                             <div class="cat_grid_item__title">{{ ucfirst($category->cat_name_en) }}</div>
@@ -103,10 +103,10 @@
                             <span class="onsale nt_label"><span>-29%</span></span>
                         </span> --}}
                         <a class="db" href="product-detail-layout-01.html">
-                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="http://gareystore.com/web_images/products/thumb/{{ $new->id }}.jpg"></div>
+                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </a>
                         <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
-                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="http://gareystore.com/web_images/products/thumb/{{ $new->id }}.jpg"></div>
+                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </div>
                         {{-- <div class="nt_add_w ts__03 pa">
                             <a href="#" class="wishlistadd cb chp ttip_nt tooltip_right">
@@ -160,10 +160,10 @@
                             <span class="onsale nt_label"><span>-29%</span></span>
                         </span> --}}
                         <a class="db" href="product-detail-layout-01.html">
-                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="http://gareystore.com/web_images/products/thumb/{{ $new->id }}.jpg"></div>
+                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </a>
                         <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
-                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="http://gareystore.com/web_images/products/thumb/{{ $new->id }}.jpg"></div>
+                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </div>
                         {{-- <div class="nt_add_w ts__03 pa">
                             <a href="#" class="wishlistadd cb chp ttip_nt tooltip_right">
@@ -216,10 +216,10 @@
                             <span class="onsale nt_label"><span>-29%</span></span>
                         </span> --}}
                         <a class="db" href="product-detail-layout-01.html">
-                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="http://gareystore.com/web_images/products/thumb/{{ $new->id }}.jpg"></div>
+                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </a>
                         <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
-                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="http://gareystore.com/web_images/products/thumb/{{ $new->id }}.jpg"></div>
+                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </div>
                         {{-- <div class="nt_add_w ts__03 pa">
                             <a href="#" class="wishlistadd cb chp ttip_nt tooltip_right">
@@ -272,10 +272,10 @@
                             <span class="onsale nt_label"><span>-29%</span></span>
                         </span> --}}
                         <a class="db" href="product-detail-layout-01.html">
-                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="http://gareystore.com/web_images/products/thumb/{{ $new->id }}.jpg"></div>
+                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </a>
                         <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
-                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="http://gareystore.com/web_images/products/thumb/{{ $new->id }}.jpg"></div>
+                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </div>
                         {{-- <div class="nt_add_w ts__03 pa">
                             <a href="#" class="wishlistadd cb chp ttip_nt tooltip_right">
