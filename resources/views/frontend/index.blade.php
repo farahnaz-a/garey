@@ -1,7 +1,10 @@
 @extends('layouts.frontend')
 
+@section('title')
+    {{ config('app.name') }} | Home Page
+@endsection
+
 @section('content')
-    
 
 <div id="nt_content">
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Banner;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
@@ -29,6 +30,24 @@ class FrontendController extends Controller
                                         ->take(8)
                                         ->get(),
         ]);
+    }
+
+    /**
+     *  Product Page 
+     */
+    public function products()
+    {
+        return view('frontend.products', ['products' => Product::latest()->simplePaginate(50)]);
+    }
+    /**
+     *  Product by category 
+     */
+    public function productbycategory($id)
+    {
+        $cat = Category::find($id); 
+
+
+       return view('frontend.productsbycategory', compact('cat'));
     }
 
 // END    
