@@ -15,6 +15,7 @@ use App\Http\Controllers\FrontendController;
 */
 
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
+Route::get('/sub-categories', [FrontendController::class, 'subCategories'])->name('frontend.subCategories');
 Route::get('/products', [FrontendController::class, 'products'])->name('frontend.products');
 Route::get('/product/by/{id}/category', [FrontendController::class, 'productbycategory'])->name('frontend.productbycategory');
 

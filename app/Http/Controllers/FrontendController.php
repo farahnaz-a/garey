@@ -7,6 +7,7 @@ use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\OrderDetail;
+use App\Models\Subcategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -45,9 +46,19 @@ class FrontendController extends Controller
     public function productbycategory($id)
     {
         $cat = Category::find($id); 
+        $products = Product::where('prod_cat_id', $id)->simplePaginate(50);
 
+       return view('frontend.products', compact('cat', 'products'));
+    }
 
-       return view('frontend.productsbycategory', compact('cat'));
+    /**
+     *  Sub Category Lists 
+     */
+    public function subCategories()
+    {
+        $subcats = Subcategory::all(); 
+        $banner  = Banner::first();
+        return view('frontend.subcategories', compact('subcats', 'banner'));
     }
 
 // END    

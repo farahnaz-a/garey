@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/home-electronic-vertical.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/shop.css') }}">
 </head>
 <body class="lazy_icons btnt4_style_2 zoom_tp_2 css_scrollbar template-collection js_search_true cart_pos_side kalles_toolbar_true hover_img2 swatch_style_rounded swatch_list_size_small label_style_rounded wrapper_full_width header_sticky_true hide_scrolld_true des_header_8 top_bar_true prs_bordered_grid_1 search_pos_full lazyload js_search_type">
 <div id="nt_wrapper">
@@ -212,6 +213,9 @@
                                       
                                         <li class="type_mega menu_wid_cus menu-item has-children menu_has_offsets menu_center pos_center">
                                             <a class="lh__1 flex al_center pr" href="{{ route('frontend.products') }}">Product</a>
+                                        </li>
+                                        <li class="type_mega menu_wid_cus menu-item has-children menu_has_offsets menu_center pos_center">
+                                            <a class="lh__1 flex al_center pr" href="{{ route('frontend.subCategories') }}">Sub category</a>
                                         </li>
                                     
                                     </ul>
@@ -1416,7 +1420,10 @@
                     <a href="shop-filter-sidebar.html"><span class="nav_link_txt flex al_center">Shop</span><span class="nav_link_icon ml__5"></span></a>
                     <ul class="sub-menu" style="display: none;">
                         <li class="menu-item">
-                            <a href="shop.html">Products List</a>
+                            <a href="{{ route('frontend.products') }}">Products List</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ route('frontend.subCategories') }}">Sub Categories</a>
                         </li>
                     </ul>
                 </li>

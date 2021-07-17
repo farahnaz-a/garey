@@ -9,10 +9,10 @@
   <!--shop banner-->
   <div class="kalles-section page_section_heading">
     <div class="page-head tc pr oh cat_bg_img page_head_">
-        <div class="parallax-inner nt_parallax_false lazyload nt_bg_lz pa t__0 l__0 r__0 b__0" data-bgset="{{ asset('assets/images/shop/shop-banner.jpg') }}"></div>
+        <div class="parallax-inner nt_parallax_false lazyload nt_bg_lz pa t__0 l__0 r__0 b__0" data-bgset="@isset($cat) {{ asset('web_images/categories/banners') }}/{{ $cat->id }}.jpg @else {{ asset('assets/images/shop/shop-banner.jpg') }}  @endisset"></div> 
         <div class="container pr z_100">
-            <h1 class="mb__5 cw">Products</h1>
-            <p class="mg__0">Shop through our latest selection of products.</p>
+            <h1 class="mb__5 cw">{{  $cat->cat_name_en ?? 'All Products' }}</h1>
+            <p class="mg__0">{{ $cat->desc ?? 'Shop through our latest selection of products.' }}</p>
         </div>
     </div>
 </div>

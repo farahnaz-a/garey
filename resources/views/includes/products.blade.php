@@ -1,5 +1,5 @@
 
-@foreach ($products as $key => $product)
+@forelse ($products as $key => $product)
 <div class="col-lg-3 col-md-3 col-6 pr_animated done mt__30 pr_grid_item product nt_pr desgin__1">
     <div class="product-inner pr">
         <div class="product-image pr oh lazyload">
@@ -25,4 +25,6 @@
         </div>
     </div>
 </div>
-@endforeach
+@empty 
+<p>Oops !! Nothing found...</p>
+@endforelse
