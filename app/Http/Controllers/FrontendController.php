@@ -50,6 +50,17 @@ class FrontendController extends Controller
 
        return view('frontend.products', compact('cat', 'products'));
     }
+    /**
+     *  Product by category 
+     */
+    public function productbysubcategory($id)
+    {
+        $subcat = Subcategory::find($id);
+        $cat = Category::find($subcat->cat_id); 
+        $products = Product::where('prod_subcat_id', $id)->simplePaginate(50);
+
+       return view('frontend.products', compact('cat', 'products'));
+    }
 
     /**
      *  Sub Category Lists 

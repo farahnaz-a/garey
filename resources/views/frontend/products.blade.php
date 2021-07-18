@@ -284,11 +284,20 @@
                                 <div class="col-12 col-md-12 widget widget_product_categories cat_count_false">
                                     <h5 class="widget-title">Product Categories</h5>
                                     <ul class="product-categories">
-                                        @foreach (categories() as $item)
+                                        @isset($cat)
+                                        @foreach (subcatbycat($cat->id) as $item)
                                         <li class="cat-item">
-                                            <a href="{{ route('frontend.productbycategory', $item->id) }}">{{ $item->cat_name_en }}  <span class="cat_count"></span></a>
+                                            <a href="{{ route('frontend.productbysubcategory', $item->id) }}">{{ $item->subcat_name_en }}  <span class="cat_count"></span></a>
                                         </li>
                                         @endforeach
+                                        @else 
+                                        @foreach (subcategories() as $item)
+                                        <li class="cat-item">
+                                            <a href="{{ route('frontend.productbysubcategory', $item->id) }}">{{ $item->subcat_name_en }}  <span class="cat_count"></span></a>
+                                        </li>
+                                        @endforeach
+                                        @endisset
+                                   
                                     </ul>
                                 </div>
                                 <div class="col-12 col-md-12 widget">

@@ -214,9 +214,6 @@
                                         <li class="type_mega menu_wid_cus menu-item has-children menu_has_offsets menu_center pos_center">
                                             <a class="lh__1 flex al_center pr" href="{{ route('frontend.products') }}">Product</a>
                                         </li>
-                                        <li class="type_mega menu_wid_cus menu-item has-children menu_has_offsets menu_center pos_center">
-                                            <a class="lh__1 flex al_center pr" href="{{ route('frontend.subCategories') }}">Sub category</a>
-                                        </li>
                                     
                                     </ul>
                                 </nav>
@@ -1421,9 +1418,6 @@
                     <ul class="sub-menu" style="display: none;">
                         <li class="menu-item">
                             <a href="{{ route('frontend.products') }}">Products List</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{ route('frontend.subCategories') }}">Sub Categories</a>
                         </li>
                     </ul>
                 </li>
