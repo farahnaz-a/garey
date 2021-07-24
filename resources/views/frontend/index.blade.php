@@ -73,7 +73,7 @@
                 @foreach (categories() as $category)
                 <div class="cat_grid_item cat_space_item cat_grid_item_1 col-lg-4 col-md-4 col-12">
                     <div class="cat_grid_item__content pr oh">
-                        <a href="shop-left-sidebar.html" class="db cat_grid_item__link">
+                        <a href="{{ route('frontend.productbycategory', $category->id) }}" class="db cat_grid_item__link">
                             <div class="cat_grid_item__overlay item__position nt_bg_lz lazyload center" data-bgset="{{ asset('web_images/categories') }}/{{ $category->id }}.jpg"></div>
                         </a>
                         <div class="cat_grid_item__wrapper pe_none">
@@ -105,7 +105,7 @@
                         {{-- <span class="tc nt_labels pa pe_none cw">
                             <span class="onsale nt_label"><span>-29%</span></span>
                         </span> --}}
-                        <a class="db" href="product-detail-layout-01.html">
+                        <a class="db" href="{{ route('frontend.productDetails', $new->id) }}">
                             <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </a>
                         <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
@@ -127,7 +127,7 @@
                     </div>
                     <div class="product-info mt__15">
                         <h3 class="product-title pr fs__14 mg__0 fwm">
-                            <a class="cd chp" href="product-detail-layout-01.html">{{ $new->prod_title_en }}</a>
+                            <a class="cd chp" href="{{ route('frontend.productDetails', $new->id) }}">{{ $new->prod_title_en }}</a>
                         </h3>
                         <span class="price dib mb__5"><ins>QAR {{ $new->price }}</ins></span>
                     </div>
@@ -162,7 +162,7 @@
                         {{-- <span class="tc nt_labels pa pe_none cw">
                             <span class="onsale nt_label"><span>-29%</span></span>
                         </span> --}}
-                        <a class="db" href="product-detail-layout-01.html">
+                        <a class="db" href="{{ route('frontend.productDetails', $new->id) }}">
                             <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </a>
                         <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
@@ -184,7 +184,7 @@
                     </div>
                     <div class="product-info mt__15">
                         <h3 class="product-title pr fs__14 mg__0 fwm">
-                            <a class="cd chp" href="product-detail-layout-01.html">{{ $new->prod_title_en }}</a>
+                            <a class="cd chp" href="{{ route('frontend.productDetails', $new->id) }}">{{ $new->prod_title_en }}</a>
                         </h3>
                         <span class="price dib mb__5"><ins>QAR {{ $new->price }}</ins></span>
                     </div>
@@ -218,7 +218,7 @@
                         {{-- <span class="tc nt_labels pa pe_none cw">
                             <span class="onsale nt_label"><span>-29%</span></span>
                         </span> --}}
-                        <a class="db" href="product-detail-layout-01.html">
+                        <a class="db" href="{{ route('frontend.productDetails', $new->id) }}">
                             <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </a>
                         <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
@@ -240,7 +240,7 @@
                     </div>
                     <div class="product-info mt__15">
                         <h3 class="product-title pr fs__14 mg__0 fwm">
-                            <a class="cd chp" href="product-detail-layout-01.html">{{ $new->prod_title_en }}</a>
+                            <a class="cd chp" href="{{ route('frontend.productDetails', $new->id) }}">{{ $new->prod_title_en }}</a>
                         </h3>
                         <span class="price dib mb__5"><ins>QAR {{ $new->price }}</ins></span>
                     </div>
@@ -274,7 +274,7 @@
                         {{-- <span class="tc nt_labels pa pe_none cw">
                             <span class="onsale nt_label"><span>-29%</span></span>
                         </span> --}}
-                        <a class="db" href="product-detail-layout-01.html">
+                        <a class="db" href="{{ route('frontend.productDetails', $new->get_product_info->id ?? '') }}">
                             <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->get_product_info->id ?? '' }}.jpg"></div>
                         </a>
                         <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
@@ -296,7 +296,7 @@
                     </div>
                     <div class="product-info mt__15">
                         <h3 class="product-title pr fs__14 mg__0 fwm">
-                            <a class="cd chp" href="product-detail-layout-01.html">{{ $new->get_product_info->prod_title_en ?? '' }}</a>
+                            <a class="cd chp" href="{{ route('frontend.productDetails', $new->get_product_info->id ??'') }}">{{ $new->get_product_info->prod_title_en ?? '' }}</a>
                         </h3>
                         <span class="price dib mb__5"><ins>QAR {{ $new->get_product_info->price ?? '' }}</ins></span>
                     </div>

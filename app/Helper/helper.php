@@ -19,3 +19,8 @@ function subcatbycat($id)
 {
     return \App\Models\Subcategory::where('cat_id', $id)->get();
 }
+
+function youmaylike($id)
+{
+    return \App\Models\Product::where('status', 'active')->where('prod_cat_id', $id)->orderBy('id', 'desc')->get();
+}

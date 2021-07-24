@@ -19,6 +19,7 @@ Route::get('/sub-categories', [FrontendController::class, 'subCategories'])->nam
 Route::get('/products', [FrontendController::class, 'products'])->name('frontend.products');
 Route::get('/product/by/{id}/category', [FrontendController::class, 'productbycategory'])->name('frontend.productbycategory');
 Route::get('/product/by/{id}/subcategory', [FrontendController::class, 'productbysubcategory'])->name('frontend.productbysubcategory');
+Route::get('/product/{id}/details', [FrontendController::class, 'productDetails'])->name('frontend.productDetails');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

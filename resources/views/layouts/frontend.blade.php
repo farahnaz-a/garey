@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/home-electronic-vertical.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/shop.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/drift-basic.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/photoswipe.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/home-default.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/single-masonry-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/single-product.css') }}">
 </head>
 <body class="lazy_icons btnt4_style_2 zoom_tp_2 css_scrollbar template-collection js_search_true cart_pos_side kalles_toolbar_true hover_img2 swatch_style_rounded swatch_list_size_small label_style_rounded wrapper_full_width header_sticky_true hide_scrolld_true des_header_8 top_bar_true prs_bordered_grid_1 search_pos_full lazyload js_search_type">
 <div id="nt_wrapper">
@@ -1509,6 +1514,13 @@
 <script src="{{ asset('assets/js/lazysizes.min.js') }}"></script>
 <script src="{{ asset('assets/js/js-cookie.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
+
+<script src="{{ asset('assets/js/photoswipe.min.js') }}"></script>
+<script src="{{ asset('assets/js/photoswipe-ui-default.min.js') }}"></script>
+<script src="{{ asset('assets/js/drift.min.js') }}"></script>
+<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('assets/js/resize-sensor.min.js') }}"></script>
+<script src="{{ asset('assets/js/theia-sticky-sidebar.min.js') }}"></script>
 @yield('js')
 <script src="{{ asset('assets/js/interface.js') }}"></script>
 </body>
