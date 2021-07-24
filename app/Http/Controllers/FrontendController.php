@@ -27,7 +27,6 @@ class FrontendController extends Controller
             'bestSellers' => OrderDetail::with('get_product_info')
                                         ->select('prod_id', DB::raw('count(*) as total'))
                                         ->groupBy('prod_id')
-                                        ->where('status', 'active')
                                         // ->where('created_at', '>', Carbon::now()->subDays(30) )
                                         ->orderBy('total', 'desc')
                                         ->take(8)
