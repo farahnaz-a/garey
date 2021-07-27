@@ -289,9 +289,16 @@
                             {{-- <a class="pr nt_add_qv js_add_qv cd br__40 pl__25 pr__25 bgw tc dib ttip_nt tooltip_top_left" href="#">
                                 <span class="tt_txt">Quick view</span><i class="iccl iccl-eye"></i><span>Quick view</span>
                             </a> --}}
-                            <a href="#" class="pr pr_atc cd br__40 bgw tc dib js_addtc cb chp ttip_nt tooltip_top_left">
-                                <span class="tt_txt">Add to cart</span><i class="iccl iccl-cart"></i><span>Add to cart</span>
-                            </a>
+                             <form method="POST" action="{{ route('cart.store') }}">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $new->get_product_info->id ?? '' }}">
+                                <input type="hidden" name="cart_amount" value="1">
+                                <a href="{{ route('cart.store') }}" onclick="event.preventDefault();
+                            this.closest('form').submit();" class="pr pr_atc cd br__40 bgw tc dib  cb chp ttip_nt tooltip_top_left">
+                                                <span class="tt_txt">Add to cart</span><i class="iccl iccl-cart"></i><span>Add to cart</span>
+                                            </a>
+                            </form>
+                            
                         </div>
                     </div>
                     <div class="product-info mt__15">

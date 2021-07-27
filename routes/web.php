@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,14 @@ Route::get('/products', [FrontendController::class, 'products'])->name('frontend
 Route::get('/product/by/{id}/category', [FrontendController::class, 'productbycategory'])->name('frontend.productbycategory');
 Route::get('/product/by/{id}/subcategory', [FrontendController::class, 'productbysubcategory'])->name('frontend.productbysubcategory');
 Route::get('/product/{id}/details', [FrontendController::class, 'productDetails'])->name('frontend.productDetails');
+
+
+// Cart Controller 
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::get('/cart/{coupon_name}', [CartController::class, 'index']);
+Route::any('/cart/store', [CartController::class, 'store'])->name('cart.store');
+Route::get('/cart/{cart_id}/delete', [CartController::class, 'delete'])->name('cart.delete');
+Route::post('/cart/update', [CartController::class, 'cartUpdate'])->name('cart.custom.update');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

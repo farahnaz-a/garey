@@ -14,7 +14,15 @@
             </div>
             <div class="hover_button op__0 tc pa flex column ts__03">
            
-                <a href="#" class="pr pr_atc cd br__40 bgw tc dib  cb chp ttip_nt tooltip_top_left"><span class="tt_txt">Quick Shop</span><i class="iccl iccl-cart"></i><span>Quick Shop</span></a>
+                <form method="POST" action="{{ route('cart.store') }}">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $product->id ?? '' }}">
+                                <input type="hidden" name="cart_amount" value="1">
+                                <a href="{{ route('cart.store') }}" onclick="event.preventDefault();
+                            this.closest('form').submit();" class="pr pr_atc cd br__40 bgw tc dib  cb chp ttip_nt tooltip_top_left">
+                                                <span class="tt_txt">Add to cart</span><i class="iccl iccl-cart"></i><span>Add to cart</span>
+                                            </a>
+                            </form>
             </div>
         </div>
         <div class="product-info mt__15">
