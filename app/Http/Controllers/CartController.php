@@ -49,7 +49,7 @@ class CartController extends Controller
         if(Cart::where('ip_address', $request->ip())->where('product_id', $request->product_id)->exists())
         {
           Cart::where('ip_address', $request->ip())->where('product_id', $request->product_id)->increment('cart_amount', $request->cart_amount);
-          return back()->withSuccess('Product Updated to Cart');
+          return back()->withCartopen('Product Updated to Cart');
         }
         else
         {
