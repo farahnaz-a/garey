@@ -59,7 +59,7 @@ class CartController extends Controller
             'product_id'  => $request->product_id,
             'created_at'  => Carbon::now(),
           ]);
-          return back()->withSuccess('Product Added to Cart');
+          return back()->withCartopen('Product Added to Cart');
         }
     }
 
