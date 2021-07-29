@@ -114,7 +114,10 @@
                                                 <div class="variations_button in_flex column w__100 buy_qv_false">
                                                     <div class="flex wrap">
                                                         <div class="quantity pr mr__10 order-1 qty__true d-inline-block" id="sp_qty_ppr">
-                                                            <input type="number" class="input-text qty text tc qty_pr_js qty_cart_js" name="quantity" value="1">
+                                                            <form method="POST" action="{{ route('cart.store') }}">
+                                                                @csrf
+                                                                <input type="hidden" name="product_id" value="{{ $data->id ?? '' }}">
+                                                            <input type="number" class="input-text qty text tc qty_pr_js qty_cart_js" name="cart_amount" value="1">
                                                             <div class="qty tc fs__14">
                                                                 <button type="button" class="plus db cb pa pd__0 pr__15 tr r__0">
                                                                     <i class="facl facl-plus"></i></button>
@@ -122,9 +125,18 @@
                                                                     <i class="facl facl-minus"></i></button>
                                                             </div>
                                                         </div>
-                                                        <button type="submit" data-time="6000" data-ani="shake" class="single_add_to_cart_button button truncate w__100 mt__20 order-4 d-inline-block animated">
+                                                        <button type="submit" data-time="6000" data-ani="shake" style="background: #56cfe1;border : none; color: #fff;" class="single_add_to_cart_butto button truncate w__100  order-4 d-inline-block animated">
                                                             <span class="txt_add ">Add to cart</span>
                                                         </button>
+                                                        {{-- <form method="POST" action="{{ route('cart.store') }}">
+                                                            @csrf
+                                                            <input type="hidden" name="product_id" value="{{ $new->get_product_info->id ?? '' }}">
+                                                            <input type="hidden" name="cart_amount" value="1">
+                                                            <a href="{{ route('cart.store') }}" onclick="event.preventDefault();
+                                                        this.closest('form').submit();" class="pr pr_atc cd br__40 bgw tc dib  cb chp ttip_nt tooltip_top_left">
+                                                                            <span class="tt_txt">Add to cart</span><i class="iccl iccl-cart"></i><span>Add to cart</span>
+                                                                        </a> --}}
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
