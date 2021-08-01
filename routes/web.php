@@ -24,9 +24,10 @@ Route::get('/product/{id}/details', [FrontendController::class, 'productDetails'
 
 
 // Cart Controller 
+Route::any('/cart-save', [CartController::class, 'store'])->name('cart.store');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::get('/dokaner/list', [CartController::class, 'list'])->name('cart.list');
 Route::get('/cart/{coupon_name}', [CartController::class, 'index']);
-Route::any('/cart/store', [CartController::class, 'store'])->name('cart.store');
 Route::get('/cart/{cart_id}/delete', [CartController::class, 'delete'])->name('cart.delete');
 Route::post('/cart/update', [CartController::class, 'cartUpdate'])->name('cart.custom.update');
 

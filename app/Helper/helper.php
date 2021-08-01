@@ -45,5 +45,5 @@ function cartTotal()
 
 function cartCount()
 {
-   return App\Models\Cart::where('ip_address', request()->ip())->count();
+   return App\Models\Cart::where('ip_address', request()->ip())->get()->count();
 }

@@ -307,15 +307,16 @@
                             {{-- <a class="pr nt_add_qv js_add_qv cd br__40 pl__25 pr__25 bgw tc dib ttip_nt tooltip_top_left" href="#">
                                 <span class="tt_txt">Quick view</span><i class="iccl iccl-eye"></i><span>Quick view</span>
                             </a> --}}
-                             <form method="POST" action="{{ route('cart.store') }}">
-                                @csrf
+                             {{-- <form method="POST" action="{{ route('cart.store') }}"> --}}
+                             {{-- <form id="ajaxCart">
                                 <input type="hidden" name="product_id" value="{{ $new->get_product_info->id ?? '' }}">
-                                <input type="hidden" name="cart_amount" value="1">
-                                <a href="{{ route('cart.store') }}" onclick="event.preventDefault();
-                            this.closest('form').submit();" class="pr pr_atc cd br__40 bgw tc dib  cb chp ttip_nt tooltip_top_left">
-                                                <span class="tt_txt">Add to cart</span><i class="iccl iccl-cart"></i><span>Add to cart</span>
+                                <input type="hidden" name="cart_amount" value="1"> --}}
+                                {{-- <a href="{{ route('cart.store') }}" onclick="event.preventDefault();
+                            this.closest('form').submit();" class="pr pr_atc cd br__40 bgw tc dib  cb chp ttip_nt tooltip_top_left"> --}}
+                                <a href="{{ route('frontend.productDetails', $new->get_product_info->id ?? '') }}" class="pr pr_atc cd br__40 bgw tc dib  cb chp ttip_nt tooltip_top_left">
+                                                <span class="tt_txt">Details</span><i class="iccl iccl-cart"></i><span>View Details</span>
                                             </a>
-                            </form>
+                            {{-- </form> --}}
                             
                         </div>
                     </div>
@@ -342,4 +343,40 @@
 
 </div>
 
+@endsection
+
+@section('js')
+<script>
+    $(document).ready(function () {
+       @foreach($bestSellers as $new)
+       $("#addCart{{ $new->get_product_info->id ?? '' }}").click(function(){
+          alert('hey');
+        //   let product_id   = $("input[name=product_id]").val();
+        //   let cart_amount  = $("input[name=cart_amount]").val(); 
+
+        //   $.ajaxSetup({
+        //       headers: {
+        //           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //       }
+        //   });
+
+        //   $.ajax({
+        //       url : '/cart-save', 
+        //       type: 'POST', 
+        //       data: {
+        //           product_id : product_id, 
+        //           cart_amount : cart_amount, 
+        //       }, 
+        //       success: function(data)
+        //       {
+        //           $("#cart-push").html(data.carts); 
+        //           $("#cart-count").html(data.total);
+                  
+        //       } 
+        //   });
+
+        // });
+       @endforeach
+    });
+</script>
 @endsection

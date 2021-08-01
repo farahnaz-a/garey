@@ -114,8 +114,9 @@
                                                 <div class="variations_button in_flex column w__100 buy_qv_false">
                                                     <div class="flex wrap">
                                                         <div class="quantity pr mr__10 order-1 qty__true d-inline-block" id="sp_qty_ppr">
-                                                            <form method="POST" action="{{ route('cart.store') }}">
-                                                                @csrf
+                                                            {{-- <form method="POST" action="{{ route('cart.store') }}"> --}}
+                                                            <form id="ajaxCart">
+                                                                {{-- @csrf --}}
                                                                 <input type="hidden" name="product_id" value="{{ $data->id ?? '' }}">
                                                             <input type="number" class="input-text qty text tc qty_pr_js qty_cart_js" name="cart_amount" value="1">
                                                             <div class="qty tc fs__14">
@@ -125,7 +126,7 @@
                                                                     <i class="facl facl-minus"></i></button>
                                                             </div>
                                                         </div>
-                                                        <button type="submit" data-time="6000" data-ani="shake" style="background: #56cfe1;border : none; color: #fff;" class="single_add_to_cart_butto button truncate w__100  order-4 d-inline-block animated">
+                                                        <button type="button" id="addCart" data-time="6000" data-ani="shake" style="background: #56cfe1;border : none; color: #fff;" class="single_add_to_cart_button button truncate w__100  order-4 d-inline-block animated">
                                                             <span class="txt_add ">Add to cart</span>
                                                         </button>
                                                         {{-- <form method="POST" action="{{ route('cart.store') }}">
@@ -462,4 +463,38 @@
         </div>
         <!--end product recommendations section-->
 
+@endsection
+
+@section('js')
+<script>
+    $(document).ready(function () {
+        $("#addCart").click(function(){
+          
+          let product_id   = $("input[name=product_id]").val();
+          let cart_amount  = $("input[name=cart_amount]").val(); 
+
+          $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+          });
+
+          $.ajax({
+              url : '/cart-save', 
+              type: 'POST', 
+              data: {
+                  product_id : product_id, 
+                  cart_amount : cart_amount, 
+              }, 
+              success: function(data)
+              {
+                  $("#cart-push").html(data.carts); 
+                  $("#cart-count").html(data.total);
+                  
+              } 
+          });
+
+        });
+    });
+</script>
 @endsection

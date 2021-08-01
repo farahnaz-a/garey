@@ -1,9 +1,13 @@
-
+@php
+    $carts = cartItems();
+    $total = cartCount();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/k_favicon_32x.png') }}">
     <title>@yield('title')</title>
@@ -185,7 +189,7 @@
                                     </div>
                                     <div class="icon_cart pr">
                                         <a class="push_side pr cb chp db" href="#" data-id="#nt_cart_canvas">
-                                            <i class="las la-shopping-cart pr"><span class="op__0 ts_op pa tcount bgb br__50 cw tc">{{ cartCount() }}</span></i>
+                                            <i class="las la-shopping-cart pr"><span id="cart-count" class="op__0 ts_op pa tcount bgb br__50 cw tc">{{ $total }}</span></i>
                                         </a>
                                     </div>
                                 </div>
@@ -713,8 +717,9 @@
                 <div class="fixcl-scroll-content">
                     
 
-                    <div class="mini_cart_items js_cat_items lazyload">
-                      @forelse(cartItems() as $item)
+                    <div class="mini_cart_items js_cat_items lazyload" id="cart-push">
+                        @include('includes.cartloop');
+                      {{-- @forelse(cartItems() as $item)
                         <div class="mini_cart_item js_cart_item flex al_center pr oh">
                             <div class="ld_cart_bar"></div>
                             <a href="{{ route('frontend.productDetails', $item->get_product->id ?? '') }}" class="mini_cart_img">
@@ -726,7 +731,7 @@
                                     <p class="cart_selling_plan"></p>
                                     <div class="cart_meta_price price">
                                         <div class="cart_price">
-                                            {{-- <del>$60.00</del> --}}
+                                            <del>$60.00</del>
                                             <ins>QAR {{ $item->get_product->price }}</ins>
                                         </div>
                                     </div>
@@ -756,7 +761,7 @@
                             <a class="button button_primary tu js_add_ld" href="{{ url('/products') }}">Return To Shop</a>
                         </p>
                     </div>
-                    @endforelse
+                    @endforelse --}}
                     </div>
                 </div>
             </div>
@@ -1396,7 +1401,8 @@
 <!-- back to top button-->
 <a id="nt_backtop" class="pf br__50 z__100 des_bt1" href="#"><span class="tc br__50 db cw"><i class="pr pegk pe-7s-angle-up"></i></span></a>
 
-<script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script> --}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="{{ asset('assets/js/jarallax.min.js') }}"></script>
 <script src="{{ asset('assets/js/packery.pkgd.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.hoverIntent.min.js') }}"></script>
@@ -1405,7 +1411,6 @@
 <script src="{{ asset('assets/js/lazysizes.min.js') }}"></script>
 <script src="{{ asset('assets/js/js-cookie.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
-
 <script src="{{ asset('assets/js/photoswipe.min.js') }}"></script>
 <script src="{{ asset('assets/js/photoswipe-ui-default.min.js') }}"></script>
 <script src="{{ asset('assets/js/drift.min.js') }}"></script>
@@ -1413,7 +1418,10 @@
 <script src="{{ asset('assets/js/resize-sensor.min.js') }}"></script>
 <script src="{{ asset('assets/js/theia-sticky-sidebar.min.js') }}"></script>
 @yield('js')
+
+
 <script src="{{ asset('assets/js/interface.js') }}"></script>
+
 </body>
 </html>
 

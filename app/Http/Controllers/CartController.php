@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Cart;
 use App\Models\Coupon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class CartController extends Controller
 {
@@ -44,12 +45,21 @@ class CartController extends Controller
           return redirect('/')->withSuccess('You do not have any products on cart');
         }
     }
+
     public function store(Request $request)
     {
+ 
+       
         if(Cart::where('ip_address', $request->ip())->where('product_id', $request->product_id)->exists())
         {
           Cart::where('ip_address', $request->ip())->where('product_id', $request->product_id)->increment('cart_amount', $request->cart_amount);
-          return back()->withCartopen('Product Updated to Cart');
+          // return back()->withCartopen('Product Updated to Cart');
+          $carts = CartItems();
+          $view = view('includes.cartloop', compact('carts')); 
+          $data = $view->render();
+          $total = cartCount();
+          return response()->json(['carts' => $data, 'total' => $total]);
+
         }
         else
         {
@@ -59,8 +69,13 @@ class CartController extends Controller
             'product_id'  => $request->product_id,
             'created_at'  => Carbon::now(),
           ]);
-          return back()->withCartopen('Product Added to Cart');
+          $carts = CartItems();
+          $view = view('includes.cartloop', compact('carts')); 
+          $data = $view->render();
+          $total = cartCount();
+          return response()->json(['carts' => $data, 'total' => $total]);
         }
+
     }
 
     public function delete($cart_id)
