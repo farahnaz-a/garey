@@ -2119,7 +2119,7 @@
                     setTimeout( () => {
                         btn$.openMenu( mini_cart_block$ );
                         btn$.removeClass( 'loading' );
-                    }, 500 );
+                    }, 1000 );
                 }
             }
         } );
