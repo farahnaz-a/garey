@@ -1,6 +1,7 @@
 @php
     $carts = cartItems();
     $total = cartCount();
+    $subtotal = cartTotal();
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -770,7 +771,7 @@
                 <div class="total row fl_between al_center">
                     <div class="col-auto"><strong>Subtotal:</strong></div>
                     <div class="col-auto tr js_cat_ttprice">
-                        <div class="cart_tot_price">QAR {{ cartTotal() }}</div>
+                        <div id="cart-total" class="cart_tot_price">QAR {{ $subtotal }}</div>
                     </div>
                 </div>
                 <p class="txt_tax_ship mb__5 fs__12">Taxes, shipping and discounts codes calculated at checkout</p>

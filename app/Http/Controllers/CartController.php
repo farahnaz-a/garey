@@ -55,10 +55,11 @@ class CartController extends Controller
           Cart::where('ip_address', $request->ip())->where('product_id', $request->product_id)->increment('cart_amount', $request->cart_amount);
           // return back()->withCartopen('Product Updated to Cart');
           $carts = CartItems();
-          $view = view('includes.cartloop', compact('carts')); 
+          $subtotal = cartTotal();
+          $view = view('includes.cartloop', compact('carts', 'subtotal')); 
           $data = $view->render();
           $total = cartCount();
-          return response()->json(['carts' => $data, 'total' => $total]);
+          return response()->json(['carts' => $data, 'total' => $total, 'subtotal' => $subtotal]);
 
         }
         else
@@ -70,10 +71,12 @@ class CartController extends Controller
             'created_at'  => Carbon::now(),
           ]);
           $carts = CartItems();
-          $view = view('includes.cartloop', compact('carts')); 
+          $subtotal = cartTotal();
+          $view = view('includes.cartloop', compact('carts', 'subtotal')); 
           $data = $view->render();
           $total = cartCount();
-          return response()->json(['carts' => $data, 'total' => $total]);
+         
+          return response()->json(['carts' => $data, 'total' => $total, 'subtotal' => $subtotal]);
         }
 
     }
