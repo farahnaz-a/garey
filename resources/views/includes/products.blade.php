@@ -19,7 +19,7 @@
                                 <input type="hidden" name="product_id" value="{{ $product->id ?? '' }}">
                                 <input type="hidden" name="cart_amount" value="1"> --}}
                                 <a href="{{ route('frontend.productDetails', $product->id ?? '') }}" class="pr pr_atc cd br__40 bgw tc dib  cb chp ttip_nt tooltip_top_left">
-                                                <span class="tt_txt">Add to cart</span><i class="iccl iccl-cart"></i><span>Add to cart</span>
+                                                <span class="tt_txt">View Details</span><i class="iccl iccl-cart"></i><span>View Details</span>
                                             </a>
                             </form>
             </div>
