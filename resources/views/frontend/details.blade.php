@@ -491,6 +491,7 @@
                   $("#cart-push").html(data.carts); 
                   $("#cart-count").html(data.total);
                   $("#cart-total").html(data.subtotal);
+                 
                   
               } 
           });

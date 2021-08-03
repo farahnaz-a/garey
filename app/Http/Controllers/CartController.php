@@ -84,7 +84,13 @@ class CartController extends Controller
     public function delete($cart_id)
     {
       Cart::find($cart_id)->delete();
-      return back()->withSuccess('Product Removed From the Cart');
+      $carts = CartItems();
+      $subtotal = cartTotal();
+      $view = view('includes.cartloop', compact('carts', 'subtotal')); 
+      $data = $view->render();
+      $total = cartCount();
+     
+      return response()->json(['carts' => $data, 'total' => $total, 'subtotal' => $subtotal]);
     }
 
     public function cartUpdate(Request $request)

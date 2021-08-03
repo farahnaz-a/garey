@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="mini_cart_actions">
                                     <div class="quantity pr mr__10 qty__true">
-                                        <input type="number" class="input-text qty text tc qty_cart_js" step="1" min="0" max="9999" value="{{ $item->cart_amount }}">
+                                        <input type="number" name="cart_amount{{ $item->id }}" class="input-text qty text tc qty_cart_js" step="1" min="0" max="9999" value="{{ $item->cart_amount }}">
                                         <div class="qty tc fs__14">
                                             <button type="button" class="plus db cb pa pd__0 pr__15 tr r__0">
                                                 <i class="facl facl-plus"></i>
@@ -27,9 +27,11 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <a href="{{ route('cart.delete', $item->id) }}"><span class="tt_txt">Remove this item</span>
+                                    <a style="cursor: pointer" class="rem" id="remove{{ $item->id }}"><span class="tt_txt">Remove this item</span>
                                         Remove
                                     </a>
+                                    <input type="hidden" name="product_id{{ $item->id }}" value="{{ $item->get_product->id ?? '' }}">
+                                 
                                 </div>
                             </div>
                         </div>

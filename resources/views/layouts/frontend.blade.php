@@ -185,9 +185,22 @@
                             <div class="col-lg-3 col-md-4 col-3 tr">
                                 <div class="nt_action in_flex al_center cart_des_1">
                                     <a class="icon_search push_side cb chp" data-id="#nt_search_canvas" href="#"><i class="las la-search"></i></a>
+                                    @guest
                                     <div class="my-account ts__05 pr dn db_md">
                                         <a class="cb chp db push_side" href="#" data-id="#nt_login_canvas"><i class="las la-user"></i></a>
                                     </div>
+                                    @endguest
+                                    @auth
+                                    <div class="my-account ts__05 pr dn db_md">
+                                       <a class="cb chp db push_side" href="{{ route('dashboard') }}"><i class="las la-user"></i></a> 
+                                    </div>
+                                    <div class="my-account ts__05 pr dn db_md">
+                                        <form action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                            <a class="cb chp db push_side" href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();"><i style="font-size:29px; margin-top:3px;" class="las la-user-times"></i></a> 
+                                        </form>
+                                    </div>
+                                       @endauth
                                     <div class="icon_cart pr">
                                         <a class="push_side pr cb chp db" href="#" data-id="#nt_cart_canvas">
                                             <i class="las la-shopping-cart pr"><span id="cart-count" class="op__0 ts_op pa tcount bgb br__50 cw tc">{{ $total }}</span></i>
@@ -782,9 +795,11 @@
                     </svg>
                 </p>
                 <a href="{{ route('cart.index') }}" class="button btn-cart mt__10 mb__10 js_add_ld d-inline-flex justify-content-center align-items-center cd-imp">View cart</a>
-                <a href="checkout.html" class="button btn-checkout mt__10 mb__10 js_add_ld d-inline-flex justify-content-center align-items-center text-white">Check Out</a>
+               @auth
+               <a href="{{ route('checkout.index') }}" class="button btn-checkout mt__10 mb__10 js_add_ld d-inline-flex justify-content-center align-items-center text-white">Check Out</a>
+               @endauth
                 <div class="cat_img_trust mt__10 lazyload">
-                    <img class="w__100" src="assets/images/trust_img2.png" width="360" height="46" alt="">
+                    <img class="w__100" src="{{ asset('assets/images/trust_img2.png') }}" width="360" height="46" alt="">
                 </div>
             </div>
         </div>
@@ -1176,8 +1191,10 @@
 <!-- end search box -->
 
 <!-- login box -->
+@guest
 <div id="nt_login_canvas" class="nt_fk_canvas dn lazyload">
     <form id="customer_login" class="nt_mini_cart flex column h__100 is_selected">
+        @csrf
         <div class="mini_cart_header flex fl_between al_center">
             <div class="h3 widget-title tu fs__16 mg__0">Login</div>
             <i class="close_pp pegk pe-7s-close ts__03 cd"></i></div>
@@ -1189,8 +1206,14 @@
                 </p>
                     <p class="form-row">
                         <label for="CustomerPassword">Password <span class="required">*</span></label>
-                        <input type="password" value="" name="password" autocomplete="current-password" id="CustomerPassword">
-                    </p><input type="submit" class="button button_primary w__100 tu js_add_ld" value="Sign In">
+                        <input type="password" name="password" autocomplete="current-password" id="CustomerPassword">
+                        <small id="loginError" class="text-danger"></small>
+                    </p>
+                    <input id="login" type="submit" onclick="event.preventDefault()" class="button button_primary w__100 tu " value="Sign In">
+                    <div id="loader" class="text-center d-none">
+                        <img width="50" src="{{ asset('spinner.gif') }}" alt="">
+                    </div>
+                    <p class="text-success" id="success"></p>
                     <br>
                     <p class="mb__10 mt__20">New customer?
                         <a href="#" data-id="#RegisterForm" class="link_acc">Create your account</a>
@@ -1214,7 +1237,7 @@
                         <label for="RecoverEmail">Email address</label>
                         <input type="email" value="" name="email" id="RecoverEmail" class="input-full" autocomplete="email" autocapitalize="off">
                     </p>
-                    <input type="submit" class="button button_primary w__100 tu js_add_ld" value="Reset Password">
+                    <input type="button" class="button button_primary w__100 tu js_add_ld" value="Reset Password">
                     <br>
                     <p class="mb__10 mt__20">Remembered your password?
                         <a href="#" data-id="#customer_login" class="link_acc">Back to login</a>
@@ -1233,22 +1256,29 @@
             <div class="mini_cart_content fixcl-scroll">
                 <div class="fixcl-scroll-content">
                     <p class="form-row">
-                        <label for="-FirstName">First Name</label>
-                        <input type="text" name="f-name" id="-FirstName" autocomplete="given-name">
+                        <label for="firstname_en">First Name</label>
+                        <input type="text" id="firstname_en" name="firstname_en" id="firstname_en" autocomplete="given-name">
+                    </p>
+                    <small class="text-danger" id="firstname_error"></small>
+                    <p class="form-row">
+                        <label for="lastname_en">Last Name</label>
+                        <input type="text" name="lastname_en" id="lastname_en" autocomplete="family-name">
+                        <small class="text-danger" id="lastname_error"></small>
                     </p>
                     <p class="form-row">
-                        <label for="-LastName">Last Name</label>
-                        <input type="text" name="last_name" id="-LastName" autocomplete="family-name">
+                        <label for="regEmail">Email <span class="required">*</span></label>
+                        <input type="email" name="email" id="regEmail" class="" autocapitalize="off" autocomplete="email" aria-required="true">
+                        <small class="text-danger" id="regEmail_error"></small>
                     </p>
                     <p class="form-row">
-                        <label for="-email">Email <span class="required">*</span></label>
-                        <input type="email" name="email" id="-email" class="" autocapitalize="off" autocomplete="email" aria-required="true">
+                        <label for="regPassword">Password <span class="required">*</span></label>
+                        <input type="password" name="password" id="regPassword" class="" autocomplete="current-password" aria-required="true">
+                        <small class="text-danger" id="regPassword_error"></small>
                     </p>
-                    <p class="form-row">
-                        <label for="-password">Password <span class="required">*</span></label>
-                        <input type="password" name="password" id="-password" class="" autocomplete="current-password" aria-required="true">
-                    </p>
-                    <input type="submit" value="Register" class="button button_primary w__100 tu js_add_ld">
+                    <input id="register" type="submit" onclick="event.preventDefault();" value="Register" class="button button_primary w__100 tu js_add_ld">
+                    <div id="reg_loader" class="text-center d-none">
+                        <img width="50" src="{{ asset('spinner.gif') }}" alt="">
+                    </div>
                     <br>
                     <p class="mb__10 mt__20">Already have an account?
                         <a href="#" data-id="#customer_login" class="link_acc">Login here</a>
@@ -1258,6 +1288,7 @@
         </div>
     </form>
 </div>
+@endguest
 <!-- end login box -->
 
 <!-- mobile toolbar -->
@@ -1285,10 +1316,18 @@
             </a>
         </div>
         <div class="type_toolbar_account kalles_toolbar_item">
+           @guest
             <a href="#" class="push_side" data-id="#nt_login_canvas">
-                <span class="toolbar_icon"></span>
-                <span class="kalles_toolbar_label">Account</span>
-            </a>
+            <span class="toolbar_icon"></span>
+            <span class="kalles_toolbar_label">Account</span>
+             </a>
+           @endguest
+           @auth
+           <a href="{{ route('dashboard') }}" class="push_side">
+            <span class="toolbar_icon"></span>
+            <span class="kalles_toolbar_label">Account</span>
+             </a>
+           @endauth
         </div>
         <div class="type_toolbar_search kalles_toolbar_item">
             <a href="#" class="push_side" data-id="#nt_search_canvas">
@@ -1418,10 +1457,132 @@
 <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
 <script src="{{ asset('assets/js/resize-sensor.min.js') }}"></script>
 <script src="{{ asset('assets/js/theia-sticky-sidebar.min.js') }}"></script>
+
 @yield('js')
 
 
 <script src="{{ asset('assets/js/interface.js') }}"></script>
+
+
+<script>
+    $(document).ready(function() {
+        $("#register").on("click", function() {
+            
+            let firstname_en = $("#firstname_en").val();
+            let lastname_en = $("#lastname_en").val();
+            let email = $("#regEmail").val();
+            let password = $("#regPassword").val();
+
+            $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+
+            $.ajax({
+                url : "{{ route('custom.register') }}", 
+                type : "POST",
+                data : {
+                    firstname_en : firstname_en,
+                    lastname_en : lastname_en,
+                    email : email,
+                    password : password,
+                },
+
+                success: function(data)
+                {
+                    $("#register").addClass('d-none');
+                   $("#reg_loader").removeClass('d-none');
+                   setTimeout(function () {
+                        $('#reg_loader').addClass('d-none');
+                    } , 3000);
+                    location.href = "{{ route('dashboard') }}";
+                }, 
+                error: function(data)
+                {
+                    $('#firstname_error').text(data.responseJSON.errors.firstname_en);
+                    $('#lastname_error').text(data.responseJSON.errors.lastname_en);
+                    $('#regEmail_error').text(data.responseJSON.errors.email);
+                    $('#regPassword_error').text(data.responseJSON.errors.password);
+                },
+
+            });
+
+        });
+    });
+</script>
+
+
+<script>
+
+   $(document).ready(function(){
+      $("#login").on("click", function() {
+        let email = $("#CustomerEmail").val(); 
+        let password = $("#CustomerPassword").val();
+        $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+          });
+        
+        $.ajax({
+            url  : "{{ route('custom.login') }}", 
+            type : "POST", 
+            data : {
+                email : email, 
+                password : password,
+            },
+            success : function(data)
+            {
+               if(data.error){
+                   
+                   $("#loginError").html(data.error);
+               }
+               else 
+               {
+                   $("#login").addClass('d-none');
+                   $("#loader").removeClass('d-none');
+                   setTimeout(function () {
+                        $('#loader').addClass('d-none');
+                    } , 3000);
+                    location.href = "{{ route('dashboard') }}";
+                   
+               }
+            }
+        });
+
+      });
+   });
+
+  @foreach($carts as $item)
+    $(document).ready(function () {
+        $("#remove{{ $item->id }}").on("click", function(){
+          
+          let product_id   = $("input[name=product_id{{ $item->id }}]").val();
+          let cart_amount  = $("input[name=cart_amount{{ $item->id }}]").val(); 
+
+          $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+          });
+
+          $.ajax({
+              url : "{{ route('cart.delete', $item->id) }}", 
+              type: 'GET', 
+              success: function(data)
+              {
+                  $("#cart-push").html(data.carts); 
+                  $("#cart-count").html(data.total);
+                  $("#cart-total").html(data.subtotal);
+                  
+              } 
+          });
+
+        });
+    });
+    @endforeach
+</script>
 
 </body>
 </html>

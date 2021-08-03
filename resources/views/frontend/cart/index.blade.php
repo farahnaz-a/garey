@@ -66,7 +66,7 @@
                 </div>
                 <div class="cart__footer mt__60">
                     <div class="row">
-                        <div class="col-12 col-md-6 cart_actions tl_md tc order-md-2 order-2 mb__50">
+                        <div class="col-12 col-md-6 cart_actions tl_md tc order-md-2 order-2 mb__50" style="opacity: 0;">
                             <label for="CartSpecialInstructions_2" class="cart-note__label dib cd mb__10"><span class="txt_add_note ">Add Order Note</span><span class="txt_edit_note dn">Edit Order Note</span></label>
                             <textarea name="note" id="CartSpecialInstructions_2" class="cart-note__input" placeholder="How can we help you?"></textarea><label for="couponcode" class="cart-couponcode__label db cd mt__20 mb__10">Coupon:</label>
                             <p>Coupon code will work on checkout page</p>
@@ -81,13 +81,13 @@
                             </div>
                             <div class="clearfix"></div>
                             <p class="db txt_tax_ship mb__5">Taxes, shipping and discounts codes calculated at checkout</p>
-                            <p class="pr dib mb__5">
-                                <input type="checkbox" id="cart_agree_2" class="js_agree_ck mr__5" name="ck_lumise">
+                            {{-- <p class="pr dib mb__5">
+                                <input required type="checkbox" id="cart_agree_2" class="js_agree_ck mr__5" name="ck_lumise">
                                 <label for="cart_agree_2">I agree with the terms and conditions.</label>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M9 20l-7-7 3-3 4 4L19 4l3 3z"></path>
                                 </svg>
-                            </p>
+                            </p> --}}
                             <button type="submit" class="btn_checkout button button_primary tu mt__10 mb__10 js_add_ld w__100">Update cart</button>
                             </form>
                             <div class="clearfix"></div>
