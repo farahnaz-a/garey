@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\CustomLoginController;
 
@@ -37,9 +38,7 @@ Route::post('/cart/update', [CartController::class, 'cartUpdate'])->name('cart.c
 Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::post('/checkout-store', [CheckoutController::class, 'store'])->name('checkout.store');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('customer.dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [CustomerController::class, 'index'])->name('dashboard');
 
 // LoginController 
 Route::post('/custom-login', [CustomLoginController::class, 'login'])->name('custom.login');

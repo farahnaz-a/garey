@@ -200,7 +200,7 @@
                                             <a class="cb chp db push_side" href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();"><i style="font-size:29px; margin-top:3px;" class="las la-user-times"></i></a> 
                                         </form>
                                     </div>
-                                       @endauth
+                                    @endauth
                                     <div class="icon_cart pr">
                                         <a class="push_side pr cb chp db" href="#" data-id="#nt_cart_canvas">
                                             <i class="las la-shopping-cart pr"><span id="cart-count" class="op__0 ts_op pa tcount bgb br__50 cw tc">{{ $total }}</span></i>
@@ -1311,7 +1311,7 @@
         <div class="type_toolbar_cart kalles_toolbar_item">
             <a href="#" class="push_side" data-id="#nt_cart_canvas">
 				<span class="toolbar_icon">
-					<span class="jsccount toolbar_count">5</span>
+					<span class="jsccount toolbar_count">{{ $total }}</span>
 				</span>
                 <span class="kalles_toolbar_label">Cart</span>
             </a>
@@ -1364,13 +1364,21 @@
                     </ul>
                 </li>
                 <li class="menu-item menu-item-btns menu-item-acount">
+                    @guest
                     <a href="#" class="push_side" data-id="#nt_login_canvas"><span class="iconbtns">Login/Register</span></a>
+                    @endguest
+                    @auth
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf 
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();" style="margin-left: 18px;">Logout</span></a>
+                        </form>
+                    @endauth
                 </li>
              
                 <li class="menu-item menu-item-infos">
                     <p class="menu_infos_title">Need help?</p>
                     <div class="menu_infos_text">
-                        <i class="pegk pe-7s-call fwb mr__10"></i>+01 23456789<br><i class="pegk pe-7s-mail fwb mr__10"></i><a class="cg" href="mailto:claue@domain.com">claue@domain.com</a>
+                        <i class="pegk pe-7s-call fwb mr__10"></i>+33306077<br><i class="pegk pe-7s-mail fwb mr__10"></i><a class="cg" href="mailto:claue@domain.com">claue@domain.com</a>
                     </div>
                 </li>
             </ul>

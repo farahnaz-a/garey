@@ -40,7 +40,7 @@
                                         <div
                                                 data-grname="not4"
                                                 data-grpvl="ntt4"
-                                                class="img_ptw p_ptw js-sl-item p-item sp-pr-gallery__img w__100 nt_bg_lz lazyload media_id_001 padding-top__127_571"
+                                                class="img_ptw p_ptw js-sl-item p-item sp-pr-gallery__img w__100 nt_bg_lz lazyload media_id_001"
                                                 data-mdid="001"
                                                 data-mdtype="image"
                                                 data-bgset="{{ asset('web_images/products/thumb') }}/{{ $data->id ?? '' }}.jpg"
@@ -49,6 +49,7 @@
                                                 data-width="1128"
                                                 data-height="1439"
                                                 data-cap="{{ $data->prod_title_en }}"
+                                                style="padding-top:80%"
                                         >
                                             <img class="op_0 dn" src="" alt="{{ $data->prod_title_en }}"/>
                                         </div>
@@ -56,7 +57,7 @@
                                         <div
                                         data-grname="not4"
                                         data-grpvl="ntt4"
-                                        class="img_ptw p_ptw js-sl-item p-item sp-pr-gallery__img w__100 nt_bg_lz lazyload media_id_002 padding-top__127_571"
+                                        class="img_ptw p_ptw js-sl-item p-item sp-pr-gallery__img w__100 nt_bg_lz lazyload media_id_002"
                                         data-mdid="002"
                                         data-mdtype="image"
                                         data-bgset="{{ asset('web_images/products') }}/{{ $item->id ?? '' }}.jpg"
@@ -65,6 +66,7 @@
                                         data-width="1128"
                                         data-height="1439"
                                         data-cap="{{ $data->prod_title_en }}"
+                                        style="padding-top:80%;"
                                 >
                                     <img class="op_0 dn" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ $data->prod_title_en }}"/>
                                 </div>
