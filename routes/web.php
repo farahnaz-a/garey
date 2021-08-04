@@ -35,6 +35,7 @@ Route::post('/cart/update', [CartController::class, 'cartUpdate'])->name('cart.c
 
 // CheckoutController 
 Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::post('/checkout-store', [CheckoutController::class, 'store'])->name('checkout.store');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('customer.dashboard');

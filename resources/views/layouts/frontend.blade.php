@@ -795,9 +795,9 @@
                     </svg>
                 </p>
                 <a href="{{ route('cart.index') }}" class="button btn-cart mt__10 mb__10 js_add_ld d-inline-flex justify-content-center align-items-center cd-imp">View cart</a>
-               @auth
+
                <a href="{{ route('checkout.index') }}" class="button btn-checkout mt__10 mb__10 js_add_ld d-inline-flex justify-content-center align-items-center text-white">Check Out</a>
-               @endauth
+
                 <div class="cat_img_trust mt__10 lazyload">
                     <img class="w__100" src="{{ asset('assets/images/trust_img2.png') }}" width="360" height="46" alt="">
                 </div>
@@ -1234,10 +1234,11 @@
             <div class="mini_cart_content fixcl-scroll">
                 <div class="fixcl-scroll-content">
                     <p class="form-row">
-                        <label for="RecoverEmail">Email address</label>
-                        <input type="email" value="" name="email" id="RecoverEmail" class="input-full" autocomplete="email" autocapitalize="off">
+                        {{-- <label for="RecoverEmail">Email address</label>
+                        <input type="email" value="" name="email" id="RecoverEmail" class="input-full" autocomplete="email" autocapitalize="off"> --}}
+                        Please contact customer service to reset your passowrd on <strong>33306077</strong>
                     </p>
-                    <input type="button" class="button button_primary w__100 tu js_add_ld" value="Reset Password">
+                    {{-- <input type="button" class="button button_primary w__100 tu js_add_ld" value="Reset Password"> --}}
                     <br>
                     <p class="mb__10 mt__20">Remembered your password?
                         <a href="#" data-id="#customer_login" class="link_acc">Back to login</a>
