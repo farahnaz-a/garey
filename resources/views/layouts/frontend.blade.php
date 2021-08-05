@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/single-product.css') }}">
     
     <link rel="stylesheet" href="{{ asset('assets/css/shopping-cart.css') }}">
+
+    @yield('css')
 </head>
 <body class="lazy_icons btnt4_style_2 zoom_tp_2 css_scrollbar template-collection js_search_true cart_pos_side kalles_toolbar_true hover_img2 swatch_style_rounded swatch_list_size_small label_style_rounded wrapper_full_width header_sticky_true hide_scrolld_true des_header_8 top_bar_true prs_bordered_grid_1 search_pos_full lazyload js_search_type">
 <div id="nt_wrapper">

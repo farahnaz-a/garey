@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-7">
                 <div class="checkout-section">
-                    <h3 class="checkout-section__title">Billing details</h3>
+                    <h3 class="checkout-section__title">Delivery details</h3>
                     <form action="{{ route('checkout.store') }}" method="POST">
                         @csrf
                     <div class="row">
@@ -53,29 +53,16 @@
                             </select>
                         </p> --}}
                         <p class="checkout-section__field col-12">
-                            <label for="address_01">Street address *</label>
-                            <input type="text" id="address_01" value="{{ old('address_one') }}" class="mb__20" name="address_one" placeholder="House number and street name">
-                            <input type="text" id="address_02" value="{{ old('address_two') }}" name="address_two" placeholder="Apartment, suite, unit, etc. (optional)">
+                            <label for="address_01">Address *</label>
+                            <input type="text" id="address_01" value="{{ old('address_one') }}" class="mb__20" name="address_one" placeholder="Enter your address (Area name, Zone#, Street#, Building#, Unit#)">
+                            <input type="text" id="address_02" value="{{ old('delivery_note') }}" class="mb__20" name="address_one" placeholder="Optional (Any special notes for delivery?)">
                             @error('address_one')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                         </p>
+                      
                         <p class="checkout-section__field col-12">
-                            <label for="address_03">Town / City</label>
-                            <input type="text" name="city" id="address_03" value="{{ old('city') }}">
-                            @error('city')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                        </p>
-                        <p class="checkout-section__field col-12">
-                            <label for="address_zip_ship_2">Postal/Zip Code</label>
-                            <input type="text" id="address_zip_ship_2" name="zip" value="{{ old('zip') }}"/>
-                            @error('zip')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                        </p>
-                        <p class="checkout-section__field col-12">
-                            <label for="address_phone">Phone</label>
+                            <label for="address_phone">Mobile number</label>
                             <input name="mobile_no" value="{{ Auth::user()->mobile_no ?? old('mobile_no') }}" type="text" id="address_phone"/>
                             @error('mobile_no')
                             <small class="text-danger">{{ $message }}</small>
@@ -87,15 +74,6 @@
                             @error('email')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
-                        </p>
-                    </div>
-                </div>
-                <div class="checkout-section">
-                    <h3 class="checkout-section__title">Shipping Details</h3>
-                    <div class="row">
-                        <p class="checkout-section__field col-12">
-                            <label for="order_comments" class="">Order notes (optional)</label>
-                            <textarea id="order_comments" name="delivery_note" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea>
                         </p>
                     </div>
                 </div>
@@ -117,34 +95,34 @@
                             <tr class="cart_item">
                                 <td class="product-name">{{ $item->get_product->prod_title_en }}<strong class="product-quantity">× {{ $item->cart_amount }}</strong>
                                 </td>
-                                <td class="product-total"><span class="cart_price">QAR {{ $item->get_product->price }}</span></td>
+                                <td class="product-total"><span class="cart_price">QAR {{ $item->get_product->price }}.00</span></td>
                             </tr>
                             @endforeach
                             </tbody>
                             <tfoot>
                             <tr class="cart-subtotal cart_item">
                                 <th>Subtotal</th>
-                                <td><span style="font-size: 13px;" class="cart_price">QAR {{ cartTotal() }}</span></td>
+                                <td><span style="font-size: 13px;" class="cart_price">QAR {{ cartTotal() }}.00</span></td>
                             </tr>
                             <tr class="cart_item">
-                                <th>Shipping</th>
-                                <td><span class="cart_price">QAR 20</span></td>
+                                <th>Delivery Fee</th>
+                                <td><span class="cart_price">QAR {{ deliveryfee() }}</span></td>
                             </tr>
                             <tr class="order-total cart_item">
                                 <th>Total</th>
-                                <td><strong style="font-size: 12px;"><span class="cart_price amount">QAR {{ cartTotal() + 20 }}</span></strong></td>
+                                <td><strong style="font-size: 12px;"><span class="cart_price amount">QAR {{ cartTotal() + deliveryfee() }}.00</span></strong></td>
                             </tr>
                             </tfoot>
                         </table>
                         <div class="checkout-payment">
                             <ul class="payment_methods">
-                                {{-- <li class="payment_method">
+                                 <li class="payment_method">
                                     <input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="bacs" checked="checked">
-                                    <label for="payment_method_bacs">Direct bank transfer</label>
+                                    <label for="payment_method_bacs">Cash on delivery</label>
                                     <div class="payment_box payment_method_bacs">
-                                        <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
+                                        <p>Delivery within (24 - 48)hrs upon placing the order.</p>
                                     </div>
-                                </li> --}}
+                                </li>
                                 {{-- <li class="payment_method">
                                     <input id="payment_method_stripe" type="radio" class="input-radio" name="payment_method" value="stripe">
                                     <label for="payment_method_stripe">
@@ -182,13 +160,13 @@
                                     </div>
                                 </li> --}}
                             </ul>
-                            <p class="checkout-payment__policy-text">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our<a href="#">privacy policy</a>.
+                            <p class="checkout-payment__policy-text">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="#">privacy policy</a>.
                             </p>
                             <label class="checkout-payment__confirm-terms-and-conditions">
                                 <input required type="checkbox" name="terms" id="terms">
-                                <span>I have read and agree to the website <a href="#" class="terms-and-conditions-link">terms and conditions</a></span>&nbsp;<span class="required">*</span>
+                                <span>I have read and agreed to the website <a href="#" class="terms-and-conditions-link">terms and conditions</a></span>&nbsp;<span class="required">*</span>
                             </label>
-                            <input type="hidden" name="total_payable" value="{{ cartTotal() + 20 }}.00">
+                            <input type="hidden" name="total_payable" value="{{ cartTotal() + deliveryfee() }}.00">
                             <button type="subit" class="button button_primary btn checkout-payment__btn-place-order">Place order</button>
                         </form>
                         </div>

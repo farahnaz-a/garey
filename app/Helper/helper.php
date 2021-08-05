@@ -47,3 +47,8 @@ function cartCount()
 {
    return App\Models\Cart::where('ip_address', request()->ip())->get()->count();
 }
+
+function deliveryfee()
+{
+    return App\Models\Setting::first()->delivery_fee;
+}

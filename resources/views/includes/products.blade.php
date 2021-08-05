@@ -7,10 +7,10 @@
             <span class="tc nt_labels pa pe_none cw"><span class="nt_label new">New</span></span>
             @endif
             <a class="d-block" href="{{ route('frontend.productDetails', $product->id ?? '') }}">
-                <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__127_571" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $product->id }}.jpg"></div>
+                <div style="padding-top:84% !important;" class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__127_571" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $product->id }}.jpg"></div>
             </a>
             <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
-                <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__127_571" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $product->id }}.jpg"></div>
+                <div style="padding-top:84% !important;" class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__127_571" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $product->id }}.jpg"></div>
             </div>
             <div class="hover_button op__0 tc pa flex column ts__03">
            

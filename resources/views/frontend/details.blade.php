@@ -4,6 +4,15 @@
     {{ config('app.name') }} | Product Details
 @endsection
 
+@section('css')
+<style>
+    .nt_bg_lz{
+        padding-top: 84% !important;
+    }
+</style>
+@endsection
+
+
 @section('content')
 <div id="nt_content">
     <div class="sp-single sp-single-4 des_pr_layout_1 mb__60">
@@ -13,15 +22,15 @@
             <div class="container">
                 <div class="row al_center">
                     <div class="col">
-                        {{-- <nav class="sp-breadcrumb">
-                            <a href="index.html">Home</a><i class="facl facl-angle-right"></i><a href="shop-filter-sidebar.html">New Arrival</a><i class="facl facl-angle-right"></i>Mercury Tee
-                        </nav> --}}
+                         <nav class="sp-breadcrumb">
+                            <a href="{{ url('/') }}">Home</a><i class="facl facl-angle-right"></i><a href="{{ route('frontend.productbysubcategory', $data->prod_subcat_id) }}">{{ \App\Models\SubCategory::find($data->prod_subcat_id)->subcat_name_en }}</a><i class="facl facl-angle-right"></i>{{ $data->prod_title_en }}
+                        </nav> 
                     </div>
-                    {{-- <div class="col-auto flex al_center">
+                  {{--  <div class="col-auto flex al_center">
                         <a href="product-detail-layout-01.html" class="pl__5 pr__5 fs__18 cd chp ttip_nt tooltip_bottom_left"><i class="las la-angle-left"></i><span class="tt_txt">Cream women pants</span></a>
                         <a href="product-detail-layout-01.html" class="pl__5 pr__5 fs__20 cd chp ttip_nt tooltip_bottom_left"><i class="fwb iccl iccl-grid fs__15"></i><span class="tt_txt">Back to New Arrival</span></a>
                         <a href="product-detail-layout-01.html" class="pl__5 pr__5 fs__18 cd chp ttip_nt tooltip_bottom_left"><i class="las la-angle-right"></i><span class="tt_txt">Short Sleeved Hoodie</span></a>
-                    </div> --}}
+                    </div>   --}}
                 </div>
             </div>
         </div>
@@ -49,7 +58,7 @@
                                                 data-width="1128"
                                                 data-height="1439"
                                                 data-cap="{{ $data->prod_title_en }}"
-                                                style="padding-top:80%"
+                                                style="padding-top:70%"
                                         >
                                             <img class="op_0 dn" src="" alt="{{ $data->prod_title_en }}"/>
                                         </div>
@@ -66,7 +75,7 @@
                                         data-width="1128"
                                         data-height="1439"
                                         data-cap="{{ $data->prod_title_en }}"
-                                        style="padding-top:80%;"
+                                        style="padding-top:70%;"
                                 >
                                     <img class="op_0 dn" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ $data->prod_title_en }}"/>
                                 </div>

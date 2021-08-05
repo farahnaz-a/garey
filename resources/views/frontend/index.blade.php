@@ -106,10 +106,10 @@
                             <span class="onsale nt_label"><span>-29%</span></span>
                         </span> --}}
                         <a class="db" href="{{ route('frontend.productDetails', $new->id) }}">
-                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
+                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" style="padding-top:84% !important;" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </a>
                         <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
-                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
+                            <div style="padding-top:84% !important;" class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </div>
                         {{-- <div class="nt_add_w ts__03 pa">
                             <a href="#" class="wishlistadd cb chp ttip_nt tooltip_right">
@@ -168,10 +168,10 @@
                             <span class="onsale nt_label"><span>-29%</span></span>
                         </span> --}}
                         <a class="db" href="{{ route('frontend.productDetails', $new->id) }}">
-                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
+                            <div style="padding-top:84% !important;" class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </a>
                         <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
-                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
+                            <div style="padding-top:84% !important;" class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </div>
                         {{-- <div class="nt_add_w ts__03 pa">
                             <a href="#" class="wishlistadd cb chp ttip_nt tooltip_right">
@@ -229,10 +229,10 @@
                             <span class="onsale nt_label"><span>-29%</span></span>
                         </span> --}}
                         <a class="db" href="{{ route('frontend.productDetails', $new->id) }}">
-                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
+                            <div style="padding-top:84% !important;" class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </a>
                         <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
-                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
+                            <div style="padding-top:84% !important;" class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->id }}.jpg"></div>
                         </div>
                         {{-- <div class="nt_add_w ts__03 pa">
                             <a href="#" class="wishlistadd cb chp ttip_nt tooltip_right">
@@ -290,10 +290,10 @@
                             <span class="onsale nt_label"><span>-29%</span></span>
                         </span> --}}
                         <a class="db" href="{{ route('frontend.productDetails', $new->get_product_info->id ?? '') }}">
-                            <div class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->get_product_info->id ?? '' }}.jpg"></div>
+                            <div style="padding-top:84% !important;" class="pr_lazy_img main-img nt_img_ratio nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->get_product_info->id ?? '' }}.jpg"></div>
                         </a>
                         <div class="hover_img pa pe_none t__0 l__0 r__0 b__0 op__0">
-                            <div class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->get_product_info->id ?? '' }}.jpg"></div>
+                            <div style="padding-top:86% !important;" class="pr_lazy_img back-img pa nt_bg_lz lazyload padding-top__100" data-bgset="{{ asset('web_images/products/thumb') }}/{{ $new->get_product_info->id ?? '' }}.jpg"></div>
                         </div>
                         {{-- <div class="nt_add_w ts__03 pa">
                             <a href="#" class="wishlistadd cb chp ttip_nt tooltip_right">
@@ -343,37 +343,4 @@
 @endsection
 
 @section('js')
-<script>
-    $(document).ready(function () {
-       @foreach($bestSellers as $new)
-       $("#addCart{{ $new->get_product_info->id ?? '' }}").click(function(){
-          alert('hey');
-        //   let product_id   = $("input[name=product_id]").val();
-        //   let cart_amount  = $("input[name=cart_amount]").val(); 
-
-        //   $.ajaxSetup({
-        //       headers: {
-        //           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //       }
-        //   });
-
-        //   $.ajax({
-        //       url : '/cart-save', 
-        //       type: 'POST', 
-        //       data: {
-        //           product_id : product_id, 
-        //           cart_amount : cart_amount, 
-        //       }, 
-        //       success: function(data)
-        //       {
-        //           $("#cart-push").html(data.carts); 
-        //           $("#cart-count").html(data.total);
-                  
-        //       } 
-        //   });
-
-        // });
-       @endforeach
-    });
-</script>
 @endsection
