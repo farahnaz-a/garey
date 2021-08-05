@@ -23,7 +23,7 @@
                 <div class="row al_center">
                     <div class="col">
                          <nav class="sp-breadcrumb">
-                            <a href="{{ url('/') }}">Home</a><i class="facl facl-angle-right"></i><a href="{{ route('frontend.productbysubcategory', $data->prod_subcat_id) }}">{{ \App\Models\SubCategory::find($data->prod_subcat_id)->subcat_name_en }}</a><i class="facl facl-angle-right"></i>{{ $data->prod_title_en }}
+                            <a href="{{ url('/') }}">Home</a><i class="facl facl-angle-right"></i><a href="{{ route('frontend.productbysubcategory', $data->prod_subcat_id) }}">{{ \App\Models\Subcategory::find($data->prod_subcat_id)->subcat_name_en }}</a><i class="facl facl-angle-right"></i>{{ $data->prod_title_en }}
                         </nav> 
                     </div>
                   {{--  <div class="col-auto flex al_center">
