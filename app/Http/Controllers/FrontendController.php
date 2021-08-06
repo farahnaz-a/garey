@@ -39,7 +39,14 @@ class FrontendController extends Controller
      */
     public function products()
     {
-        return view('frontend.products', ['products' => Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(50)]);
+        return view('frontend.products', [
+            'products' => Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(50),
+            'brands' => DB::table('products')
+                        ->select('manufacture_en', DB::raw('count(*) as total'))
+                        ->groupBy('manufacture_en')
+                        ->get(),
+        
+        ]);
     }
     /**
      *  Product by category 
@@ -48,8 +55,12 @@ class FrontendController extends Controller
     {
         $cat = Category::find($id); 
         $products = Product::where('status', 'active')->where('prod_cat_id', $id)->simplePaginate(50);
+        $brands = DB::table('products')
+                ->select('manufacture_en', DB::raw('count(*) as total'))
+                ->groupBy('manufacture_en')
+                ->get();
 
-       return view('frontend.products', compact('cat', 'products'));
+       return view('frontend.products', compact('cat', 'products', 'brands'));
     }
     /**
      *  Product by category 
@@ -59,8 +70,12 @@ class FrontendController extends Controller
         $subcat = Subcategory::find($id);
         $cat = Category::find($subcat->cat_id); 
         $products = Product::where('status', 'active')->where('prod_subcat_id', $id)->simplePaginate(50);
+        $brands = DB::table('products')
+                ->select('manufacture_en', DB::raw('count(*) as total'))
+                ->groupBy('manufacture_en')
+                ->get();
 
-       return view('frontend.products', compact('cat', 'products'));
+       return view('frontend.products', compact('cat', 'products', 'brands'));
     }
 
     /**
@@ -82,6 +97,46 @@ class FrontendController extends Controller
 
         return view('frontend.details', compact('data'));
 
+    }
+
+    /**
+     *  Search 
+     */
+    public function search()
+    {
+        $category = request()->product_type; 
+        $query    = request()->q; 
+        $cat = Category::where('cat_name_en', $category)->first(); 
+        $brands = DB::table('products')
+                ->select('manufacture_en', DB::raw('count(*) as total'))
+                ->groupBy('manufacture_en')
+                ->get();
+
+        if($category == '*')
+        {
+            $products = Product::where('prod_title_en', 'LIKE', '%'.$query.'%')
+                               ->simplePaginate(50);
+            return view('frontend.products', compact('products', 'brands'));
+        }
+        else 
+        {
+            $products = Product::where('prod_cat_id', $cat->id)
+                               ->where('prod_title_en', 'LIKE', '%'.$query.'%')
+                               ->simplePaginate(50);
+            return view('frontend.products', compact('products', 'brands'));
+        }
+    }
+
+    public function filterSearch(Request $request)
+    {
+        $products = Product::where('manufacture_en', $request->brand)->get();
+        $brands = DB::table('products')
+                    ->select('manufacture_en', DB::raw('count(*) as total'))
+                    ->groupBy('manufacture_en')
+                    ->get();
+        $view = view('includes.products', compact('products', 'brands')); 
+        $result = $view->render();
+        echo $result;
     }
 
 // END    

@@ -166,7 +166,7 @@ class CheckoutController extends Controller
  
              Auth::login($user);
  
-             return redirect()->route('dashboard')->withMessage('Thank you, Your order has been placed successfully. You may login to see your order status using'. "<br>". 'username: '. $request->email . "<br>" . 'password: '. $request->mobile_no. '.');
+             return redirect()->route('dashboard')->withMessage('Thank you, Your order has been placed successfully. You may login to see your order status using'. "<br>". 'username: '. $request->email . "<br>" . 'password: '. $request->mobile_no);
  
         }
        }

@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                             <div class="col-6 dn db_lg cl_h_search atc_opended_rs">
-                                <form action="#" method="get" class="h_search_frm js_frm_search pr" role="search">
+                                <form action="{{ route('frontend.search') }}" method="get" class="h_search_frm js_frm_search pr" role="search">
                                     <div class="row no-gutters al_center">
                                         <div class="frm_search_cat col-auto">
                                             <select name="product_type">
@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="col-auto h_space_search"></div>
                                         <div class="frm_search_input pr oh col">
-                                            <input class="h_search_ip js_iput_search" autocomplete="off" type="text" name="q" placeholder="I’m shopping for...." value=""/>
+                                            <input class="h_search_ip js_iput_search" autocomplete="off" type="text" name="q" placeholder="I’m shopping for...." />
                                         </div>
                                         <div class="frm_search_cat col-auto">
                                             <button class="h_search_btn js_btn_search" type="submit">Search</button>

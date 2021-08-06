@@ -74,182 +74,13 @@
         <div id="kalles-section-nt_filter" class="kalles-section nt_ajaxFilter section_nt_filter">
             <div class="h3 mg__0 tu bgb cw visible-sm fs__16 pr">Filter<i class="close_pp pegk pe-7s-close fs__40 ml__5"></i>
             </div>
-            {{-- <div class="cat_shop_wrap">
+            <div class="cat_shop_wrap">
                 <div class="cat_fixcl-scroll">
                     <div class="cat_fixcl-scroll-content css_ntbar">
-                        <div class="row wrap_filter"> --}}
-                            {{-- <div class="col-12 col-md-3 widget">
-                                <h5 class="widget-title">By Color</h5>
-                                <div class="loke_scroll">
-                                    <ul class="nt_filter_block nt_filter_color css_ntbar" data-filter_condition="and">
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag color black">
-                                                <div class="filter-swatch">
-                                                    <span class="swatch__value bg_color_black lazyload"></span>
-                                                </div>
-                                                black</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag color cyan">
-                                                <div class="filter-swatch">
-                                                    <span class="swatch__value bg_color_cyan lazyload"></span>
-                                                </div>
-                                                cyan</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag color green">
-                                                <div class="filter-swatch">
-                                                    <span class="swatch__value bg_color_green lazyload"></span>
-                                                </div>
-                                                green</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag color grey">
-                                                <div class="filter-swatch">
-                                                    <span class="swatch__value bg_color_grey lazyload"></span>
-                                                </div>
-                                                grey</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag color pink">
-                                                <div class="filter-swatch">
-                                                    <span class="swatch__value bg_color_pink lazyload"></span>
-                                                </div>
-                                                pink</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag color pink clay">
-                                                <div class="filter-swatch">
-                                                    <span class="swatch__value bg_color_pink-clay lazyload"></span>
-                                                </div>
-                                                pink clay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag color sliver">
-                                                <div class="filter-swatch">
-                                                    <span class="swatch__value bg_color_sliver lazyload"></span>
-                                                </div>
-                                                sliver</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag color white">
-                                                <div class="filter-swatch">
-                                                    <span class="swatch__value bg_color_white lazyload"></span>
-                                                </div>
-                                                white</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag color white cream">
-                                                <div class="filter-swatch">
-                                                    <span class="swatch__value bg_color_white-cream lazyload" data-bg="assets/images/shop/color-white-cream.jpg"></span>
-                                                </div>
-                                                white cream</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag color beige">
-                                                <div class="filter-swatch">
-                                                    <span class="swatch__value bg_color_beige lazyload"></span>
-                                                </div>
-                                                beige</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag color blue">
-                                                <div class="filter-swatch">
-                                                    <span class="swatch__value bg_color_blue lazyload"></span>
-                                                </div>
-                                                blue</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag color brown">
-                                                <div class="filter-swatch">
-                                                    <span class="swatch__value bg_color_brown lazyload"></span>
-                                                </div>
-                                                brown</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="col-12 col-md-3 widget">
-                                <h5 class="widget-title">By Price</h5>
-                                <div class="loke_scroll">
-                                    <ul class="nt_filter_block nt_filter_styleck css_ntbar" data-filter_condition="or">
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag price $50-$100">$50-$100</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag price $100-$150">$100-$150</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag price $150-$200">$150-$200</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag price $250-$300">$250-$300</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag price $350-$400">$350-$400</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag price $450-$500">$450-$500</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="col-12 col-md-3 widget">
-                                <h5 class="widget-title">By Size</h5>
-                                <div class="loke_scroll">
-                                    <ul class="nt_filter_block nt_filter_styleck css_ntbar" data-filter_condition="and">
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag size s">s</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag size m">m</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag size l">l</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag size xs">xs</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag size xl">xl</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag size xxl">xxl</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="col-12 col-md-3 widget">
-                                <h5 class="widget-title">By Brand</h5>
-                                <div class="loke_scroll">
-                                    <ul class="nt_filter_block nt_filter_styleck css_ntbar" data-filter_condition="and">
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag vendor ck">ck</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag vendor h&amp;m">h&amp;m</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag vendor kalles">kalles</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag vendor levi's">levi's</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag vendor monki">monki</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Narrow selection to products matching tag vendor nike">nike</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="col-12 tc mt__20 mb__20 dn">
-                                <a class="button clear_filter_js" href="#">Clear All Filter</a></div>
-                        </div>
+                        @include('includes.filter')
                     </div>
                 </div>
-            </div> --}}
+            </div> 
         </div>
     </div>
     <!--end filter panel area-->
@@ -471,7 +302,7 @@
                 <!--end filter result-->
 
                 <!--products list-->
-                <div class="on_list_view_false products nt_products_holder row fl_center row_pr_1 cdt_des_1 round_cd_false nt_cover ratio_nt position_8 space_30 nt_default">
+                <div id="prods" class="on_list_view_false products nt_products_holder row fl_center row_pr_1 cdt_des_1 round_cd_false nt_cover ratio_nt position_8 space_30 nt_default">
                     @include('includes.products')
                 </div>
                 <!--end products list-->
@@ -500,4 +331,55 @@
 
 </div>
 
+@endsection
+
+@section('js')
+<script>
+    $(document).ready(function(){
+       let brand = [];
+    @foreach ($brands as $item)
+        $("#chck{{ $item->manufacture_en ?? '' }}").on("click", function(e){
+            e.preventDefault();
+
+            if($("#chck{{ $item->manufacture_en ?? '' }}").hasClass('active') == false)
+            {
+                let brand = "{{ $item->manufacture_en }}";
+                $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+                });
+
+                $.ajax({
+                    url: "{{ route('frontend.filtersearch') }}",
+                    type: "POST",
+                    data: {
+                        brand : brand
+                    }, 
+                    success: function(data)
+                    {
+                        $("#prods").html(data);
+                        // $("#prods").load(location.href + " #prods");
+                    } 
+                    
+                });
+               
+            }
+            else 
+            {
+                $("#prods").load(location.href + " #prods");
+            }
+            
+        });
+    @endforeach
+
+     $("#clear").on("click", function(e){
+         e.preventDefault(); 
+         $("#prods").load(location.href + " #prods");
+     });
+
+    });
+
+
+</script>
 @endsection

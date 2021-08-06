@@ -24,6 +24,8 @@ Route::get('/products', [FrontendController::class, 'products'])->name('frontend
 Route::get('/product/by/{id}/category', [FrontendController::class, 'productbycategory'])->name('frontend.productbycategory');
 Route::get('/product/by/{id}/subcategory', [FrontendController::class, 'productbysubcategory'])->name('frontend.productbysubcategory');
 Route::get('/product/{id}/details', [FrontendController::class, 'productDetails'])->name('frontend.productDetails');
+Route::get('/search', [FrontendController::class, 'search'])->name('frontend.search');
+Route::post('/filter-search', [FrontendController::class, 'filterSearch'])->name('frontend.filtersearch');
 
 
 // Cart Controller 
