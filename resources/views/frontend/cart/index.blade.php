@@ -89,7 +89,8 @@
                                 </svg>
                             </p> --}}
                             <button type="submit" class="btn_checkout button button_primary tu mt__10 mb__10 js_add_ld w__100">Update cart</button>
-                            </form>
+                        </form> <br>
+                        <button type="submit" onclick="event.preventDefault();window.location = '{{ route('checkout.index') }}'" class="btn_checkout button button_primary tu mt__10 mb__10 js_add_ld w__100">Check out</button>
                             <div class="clearfix"></div>
                             <div class="cat_img_trust mt__10">
                                 <img class="lz_op_ef lazyload w-50" src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20476%2052%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="assets/images/shopping-cart/cart_image.png" alt="">
