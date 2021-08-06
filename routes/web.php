@@ -26,6 +26,11 @@ Route::get('/product/by/{id}/subcategory', [FrontendController::class, 'productb
 Route::get('/product/{id}/details', [FrontendController::class, 'productDetails'])->name('frontend.productDetails');
 Route::get('/search', [FrontendController::class, 'search'])->name('frontend.search');
 Route::post('/filter-search', [FrontendController::class, 'filterSearch'])->name('frontend.filtersearch');
+Route::post('/price-search', [FrontendController::class, 'priceSearch'])->name('frontend.pricesearch');
+Route::get('/lth', [FrontendController::class, 'lth'])->name('frontend.lth');
+Route::get('/htl', [FrontendController::class, 'htl'])->name('frontend.htl');
+Route::get('/otn', [FrontendController::class, 'otn'])->name('frontend.otn');
+Route::get('/nto', [FrontendController::class, 'nto'])->name('frontend.nto');
 
 
 // Cart Controller 

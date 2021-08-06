@@ -138,6 +138,71 @@ class FrontendController extends Controller
         $result = $view->render();
         echo $result;
     }
+    public function priceSearch(Request $request)
+    {
+
+     
+        $input   = $request->price;
+        $output  = str_replace('$', ' ', $request->price);
+        $explode = explode('-', $output); 
+
+        $min = $explode[0];
+        $max = $explode[1];
+
+        $products = Product::whereBetween('price', [$min, $max])->get();
+        $brands = DB::table('products')
+                    ->select('manufacture_en', DB::raw('count(*) as total'))
+                    ->groupBy('manufacture_en')
+                    ->get();
+        $view = view('includes.products', compact('products', 'brands')); 
+        $result = $view->render();
+        echo $result;
+    }
+
+    public function lth()
+    {
+        $products = Product::where('status', 'active')->orderBy('price', 'asc')->simplePaginate(50);
+        $brands = DB::table('products')
+                        ->select('manufacture_en', DB::raw('count(*) as total'))
+                        ->groupBy('manufacture_en')
+                        ->get();
+        $view = view('includes.products', compact('products', 'brands')); 
+        $result = $view->render();
+        echo $result;
+    }
+    public function htl()
+    {
+        $products = Product::where('status', 'active')->orderBy('price', 'desc')->simplePaginate(50);
+        $brands = DB::table('products')
+                        ->select('manufacture_en', DB::raw('count(*) as total'))
+                        ->groupBy('manufacture_en')
+                        ->get();
+        $view = view('includes.products', compact('products', 'brands')); 
+        $result = $view->render();
+        echo $result;
+    }
+    public function otn()
+    {
+        $products = Product::where('status', 'active')->orderBy('id', 'asc')->simplePaginate(50);
+        $brands = DB::table('products')
+                        ->select('manufacture_en', DB::raw('count(*) as total'))
+                        ->groupBy('manufacture_en')
+                        ->get();
+        $view = view('includes.products', compact('products', 'brands')); 
+        $result = $view->render();
+        echo $result;
+    }
+    public function nto()
+    {
+        $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(50);
+        $brands = DB::table('products')
+                        ->select('manufacture_en', DB::raw('count(*) as total'))
+                        ->groupBy('manufacture_en')
+                        ->get();
+        $view = view('includes.products', compact('products', 'brands')); 
+        $result = $view->render();
+        echo $result;
+    }
 
 // END    
 }

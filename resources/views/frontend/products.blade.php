@@ -55,14 +55,10 @@
                 <div class="h3 mg__0 tc cd tu ls__2 dn_lg db">Sort by<i class="pegk pe-7s-close fs__50 ml__5"></i>
                 </div>
                 <div class="nt_ajaxsortby wrap_sortby kalles_dropdown_options">
-                    <a data-label="Featured" class="kalles_dropdown_option truncate selected" href="#">Featured</a>
-                    <a data-label="Best selling" class="kalles_dropdown_option truncate" href="#">Best selling</a>
-                    <a data-label="Alphabetically, A-Z" class="kalles_dropdown_option truncate" href="#">Alphabetically, A-Z</a>
-                    <a data-label="Alphabetically, Z-A" class="kalles_dropdown_option truncate" href="#">Alphabetically, Z-A</a>
-                    <a data-label="Price, low to high" class="kalles_dropdown_option truncate" href="#">Price, low to high</a>
-                    <a data-label="Price, high to low" class="kalles_dropdown_option truncate" href="#">Price, high to low</a>
-                    <a data-label="Date, old to new" class="kalles_dropdown_option truncate" href="#">Date, old to new</a>
-                    <a data-label="Date, new to old" class="kalles_dropdown_option truncate" href="#">Date, new to old</a>
+                    <a id="lth" data-label="Price, low to high" class="kalles_dropdown_option truncate" href="#">Price, low to high</a>
+                    <a id="htl" data-label="Price, high to low" class="kalles_dropdown_option truncate" href="#">Price, high to low</a>
+                    <a id="otn" data-label="Date, old to new" class="kalles_dropdown_option truncate" href="#">Date, old to new</a>
+                    <a id="nto" data-label="Date, new to old" class="kalles_dropdown_option truncate" href="#">Date, new to old</a>
                 </div>
             </div>
         </div>
@@ -100,11 +96,7 @@
                                 <div class="col-12 col-md-12 widget hidden_sortby_false">
                                     <h5 class="widget-title">Sort by</h5>
                                     <div class="loke_scroll">
-                                        <ul class="nt_filter_block nt_filter_sortby">
-                                            <li class="active"><a href="#">Featured</a></li>
-                                            <li><a href="#">Best selling</a></li>
-                                            <li><a href="#">Alphabetically, A-Z</a></li>
-                                            <li><a href="#">Alphabetically, Z-A</a></li>
+                                        <ul  class="nt_filter_block nt_filter_sortby">
                                             <li><a href="#">Price, low to high</a></li>
                                             <li><a href="#">Price, high to low</a></li>
                                             <li><a href="#">Date, old to new</a></li>
@@ -135,22 +127,22 @@
                                     <h5 class="widget-title">Filter by price</h5>
                                     <div class="loke_scroll">
                                         <ul class="nt_filter_block nt_filter_styleck css_ntbar">
-                                            <li>
+                                            <li id="7">
                                                 <a href="#" aria-label="Narrow selection to products matching tag price $50-$100">$50-$100</a>
                                             </li>
-                                            <li>
+                                            <li id="8">
                                                 <a href="#" aria-label="Narrow selection to products matching tag price $100-$150">$100-$150</a>
                                             </li>
-                                            <li>
+                                            <li id="9">
                                                 <a href="#" aria-label="Narrow selection to products matching tag price $150-$200">$150-$200</a>
                                             </li>
-                                            <li>
+                                            <li id="10">
                                                 <a href="#" aria-label="Narrow selection to products matching tag price $250-$300">$250-$300</a>
                                             </li>
-                                            <li>
+                                            <li id="11">
                                                 <a href="#" aria-label="Narrow selection to products matching tag price $350-$400">$350-$400</a>
                                             </li>
-                                            <li>
+                                            <li id="12">
                                                 <a href="#" aria-label="Narrow selection to products matching tag price $450-$500">$450-$500</a>
                                             </li>
                                         </ul>
@@ -336,7 +328,6 @@
 @section('js')
 <script>
     $(document).ready(function(){
-       let brand = [];
     @foreach ($brands as $item)
         $("#chck{{ $item->manufacture_en ?? '' }}").on("click", function(e){
             e.preventDefault();
@@ -378,8 +369,136 @@
          $("#prods").load(location.href + " #prods");
      });
 
+
+    @for($i = 1; $i <= 6; $i++)
+    $("#{{ $i }}").on("click", function(e) {
+
+        let price = $("#{{ $i }}").text(); 
+
+        $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+                });
+
+                $.ajax({
+                    url: "{{ route('frontend.pricesearch') }}",
+                    type: "POST",
+                    data: {
+                        price : price
+                    }, 
+                    success: function(data)
+                    {
+                        $("#prods").html(data); 
+                        // $("#prods").load(location.href + " #prods");
+                    } 
+                    
+                });
+
+
+    });
+    @endfor
+    @for($i = 7; $i <= 12; $i++)
+    $("#{{ $i }}").on("click", function(e) {
+
+        let price = $("#{{ $i }}").text(); 
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+                $.ajax({
+                    url: "{{ route('frontend.pricesearch') }}",
+                    type: "POST",
+                    data: {
+                        price : price
+                    }, 
+                    success: function(data)
+                    {
+                        $("#prods").html(data); 
+                        // $("#prods").load(location.href + " #prods");
+                    } 
+                    
+                });
+
+
+    });
+    @endfor
+
+    $("#lth").on("click", function(e){
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url : "{{ route('frontend.lth') }}", 
+            type : "GET", 
+            success : function(data)
+            {
+               $("#prods").html(data);
+            }
+        });
+
     });
 
+    $("#htl").on("click", function(e){
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
+        $.ajax({
+            url : "{{ route('frontend.htl') }}",
+            type : "GET", 
+            success: function(data)
+            {
+                $("#prods").html(data);
+            }
+        });
+    });
+
+    $("#otn").on("click", function(e){
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url : "{{ route('frontend.otn') }}",
+            type : "GET", 
+            success: function(data)
+            {
+                $("#prods").html(data);
+            }
+        });
+    });
+    $("#nto").on("click", function(e){
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url : "{{ route('frontend.nto') }}",
+            type : "GET", 
+            success: function(data)
+            {
+                $("#prods").html(data);
+            }
+        });
+    });
+
+    });
 </script>
 @endsection
