@@ -128,22 +128,22 @@
                                     <div class="loke_scroll">
                                         <ul class="nt_filter_block nt_filter_styleck css_ntbar">
                                             <li id="7">
-                                                <a href="#" aria-label="Narrow selection to products matching tag price $50-$100">$50-$100</a>
+                                                <a href="#" aria-label="Narrow selection to products matching tag price $50-$100">QAR50-QAR100</a>
                                             </li>
                                             <li id="8">
-                                                <a href="#" aria-label="Narrow selection to products matching tag price $100-$150">$100-$150</a>
+                                                <a href="#" aria-label="Narrow selection to products matching tag price $100-$150">QAR100-QAR150</a>
                                             </li>
                                             <li id="9">
-                                                <a href="#" aria-label="Narrow selection to products matching tag price $150-$200">$150-$200</a>
+                                                <a href="#" aria-label="Narrow selection to products matching tag price $150-$200">QAR150-QAR200</a>
                                             </li>
                                             <li id="10">
-                                                <a href="#" aria-label="Narrow selection to products matching tag price $250-$300">$250-$300</a>
+                                                <a href="#" aria-label="Narrow selection to products matching tag price $250-$300">QAR250-QAR300</a>
                                             </li>
                                             <li id="11">
-                                                <a href="#" aria-label="Narrow selection to products matching tag price $350-$400">$350-$400</a>
+                                                <a href="#" aria-label="Narrow selection to products matching tag price $350-$400">QAR350-QAR400</a>
                                             </li>
                                             <li id="12">
-                                                <a href="#" aria-label="Narrow selection to products matching tag price $450-$500">$450-$500</a>
+                                                <a href="#" aria-label="Narrow selection to products matching tag price $450-$500">QAR450-QAR500</a>
                                             </li>
                                         </ul>
                                     </div>

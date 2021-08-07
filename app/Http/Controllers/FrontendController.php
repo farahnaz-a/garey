@@ -106,6 +106,7 @@ class FrontendController extends Controller
     {
         $category = request()->product_type; 
         $query    = request()->q; 
+        $keywords = explode(' ', $query);
         $cat = Category::where('cat_name_en', $category)->first(); 
         $brands = DB::table('products')
                 ->select('manufacture_en', DB::raw('count(*) as total'))
@@ -114,15 +115,23 @@ class FrontendController extends Controller
 
         if($category == '*')
         {
-            $products = Product::where('prod_title_en', 'LIKE', '%'.$query.'%')
-                               ->simplePaginate(50);
+            // $products = Product::where('prod_title_en', 'LIKE', '%'.$query.'%')
+            //                    ->simplePaginate(50);
+
+            $products = Product::where(function ($query) use ($keywords) {
+                foreach ($keywords as $keyword) {
+                   $query->Where('prod_title_en', 'LIKE', "%$keyword%");
+                }
+            })->simplePaginate(50);
             return view('frontend.products', compact('products', 'brands'));
         }
         else 
         {
-            $products = Product::where('prod_cat_id', $cat->id)
-                               ->where('prod_title_en', 'LIKE', '%'.$query.'%')
-                               ->simplePaginate(50);
+            $products = Product::where(function ($query) use ($keywords) {
+                foreach ($keywords as $keyword) {
+                    $query->Where('prod_title_en', 'LIKE', "%$keyword%");
+                    }
+                })->simplePaginate(50);
             return view('frontend.products', compact('products', 'brands'));
         }
     }
@@ -133,7 +142,7 @@ class FrontendController extends Controller
         $brands = DB::table('products')
                     ->select('manufacture_en', DB::raw('count(*) as total'))
                     ->groupBy('manufacture_en')
-                    ->get();
+                    ->simplePaginate(50);
         $view = view('includes.products', compact('products', 'brands')); 
         $result = $view->render();
         echo $result;
@@ -143,7 +152,7 @@ class FrontendController extends Controller
 
      
         $input   = $request->price;
-        $output  = str_replace('$', ' ', $request->price);
+        $output  = str_replace('QAR', ' ', $request->price);
         $explode = explode('-', $output); 
 
         $min = $explode[0];
@@ -153,7 +162,7 @@ class FrontendController extends Controller
         $brands = DB::table('products')
                     ->select('manufacture_en', DB::raw('count(*) as total'))
                     ->groupBy('manufacture_en')
-                    ->get();
+                    ->simplePaginate(50);
         $view = view('includes.products', compact('products', 'brands')); 
         $result = $view->render();
         echo $result;
@@ -202,6 +211,22 @@ class FrontendController extends Controller
         $view = view('includes.products', compact('products', 'brands')); 
         $result = $view->render();
         echo $result;
+    }
+
+    /**
+     *  Contact page 
+     */
+    public function contact()
+    {
+       return view('frontend.contact');
+    }
+
+    /**
+     *  Terms & Conditions
+     */
+    public function terms()
+    {
+       return view('frontend.terms');
     }
 
 // END    

@@ -55,9 +55,9 @@
                             <div class="col-lg-3 col-md-4 col-6 tc tl_lg">
                                 <div class="branding ts__05 lh__1">
                                     <a class="dib" href="{{ route('frontend.index') }}">
-                                        <img class="w__95 logo_normal dn db_lg" src="{{ asset('assets/images/svg/kalles.svg') }}" alt="Kalles Template">
-                                        <img class="w__100 logo_sticky dn" src="{{ asset('assets/images/svg/kalles.svg') }}" alt="Kalles Template">
-                                        <img class="w__100 logo_mobile dn_lg" src="{{ asset('assets/images/svg/kalles.svg') }}" alt="Kalles Template">
+                                        <img class="w__95 logo_normal dn db_lg" src="{{ asset('web_images/logo.png') }}" alt="Kalles Template">
+                                        <img class="w__100 logo_sticky dn" src="{{ asset('web_images/logo.png') }}" alt="Kalles Template">
+                                        <img class="w__100 logo_mobile dn_lg" src="{{ asset('web_images/logo.png') }}" alt="Kalles Template">
                                     </a>
                                 </div>
                             </div>
@@ -81,108 +81,6 @@
                                         </div>
                                     </div>
                                 </form>
-                                {{-- <div class="pr">
-                                    <div class="mini_cart_content fixcl-scroll widget">
-                                        <div class="fixcl-scroll-content product_list_widget">
-                                            <div class="ld_bar_search"></div>
-                                            <div class="skeleton_wrap skeleton_js dn">
-                                                <div class="row mb__10 pb__10">
-                                                    <div class="col-auto widget_img_pr">
-                                                        <div class="skeleton_img"></div>
-                                                    </div>
-                                                    <div class="col widget_if_pr">
-                                                        <div class="skeleton_txt1"></div>
-                                                        <div class="skeleton_txt2"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb__10 pb__10">
-                                                    <div class="col-auto widget_img_pr">
-                                                        <div class="skeleton_img"></div>
-                                                    </div>
-                                                    <div class="col widget_if_pr">
-                                                        <div class="skeleton_txt1"></div>
-                                                        <div class="skeleton_txt2"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb__10 pb__10">
-                                                    <div class="col-auto widget_img_pr">
-                                                        <div class="skeleton_img"></div>
-                                                    </div>
-                                                    <div class="col widget_if_pr">
-                                                        <div class="skeleton_txt1"></div>
-                                                        <div class="skeleton_txt2"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb__10 pb__10">
-                                                    <div class="col-auto widget_img_pr">
-                                                        <div class="skeleton_img"></div>
-                                                    </div>
-                                                    <div class="col widget_if_pr">
-                                                        <div class="skeleton_txt1"></div>
-                                                        <div class="skeleton_txt2"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="js_prs_search">
-                                                <div class="row mb__10 pb__10">
-                                                    <div class="col widget_img_pr">
-                                                        <a class="db pr oh" href="product-detail-layout-01.html">
-                                                            <img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20640%20640%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="assets/images/home-electronic-vertical/pr-01-80x.jpg" class="w__100 lazyload lz_op_ef" alt="Ysamsung Camera"/>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col widget_if_pr">
-                                                        <a class="product-title db" href="product-detail-layout-01.html">Ysamsung Camera</a>
-                                                        <del>$35.00</del>
-                                                        <ins>$25.00</ins>
-                                                        <span class="onsale nt_label">-29%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb__10 pb__10">
-                                                    <div class="col widget_img_pr">
-                                                        <a class="db pr oh" href="product-detail-layout-01.html">
-                                                            <img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20640%20640%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="assets/images/home-electronic-vertical/pr-02-80x.jpg" class="w__100 lazyload lz_op_ef" alt="Beats Solo3 Wireless"/>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col widget_if_pr">
-                                                        <a class="product-title db" href="product-detail-layout-01.html">Beats Solo3 Wireless</a>$35.00
-                                                    </div>
-                                                </div>
-                                                <div class="row mb__10 pb__10">
-                                                    <div class="col widget_img_pr">
-                                                        <a class="db pr oh" href="product-detail-layout-01.html">
-                                                            <img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20640%20640%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="assets/images/home-electronic-vertical/pr-03-80x.jpg" class="w__100 lazyload lz_op_ef" alt="Lomo Sanremo Edition"/>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col widget_if_pr">
-                                                        <a class="product-title db" href="product-detail-layout-01.html">Lomo Sanremo Edition</a>$65.00
-                                                    </div>
-                                                </div>
-                                                <div class="row mb__10 pb__10">
-                                                    <div class="col widget_img_pr">
-                                                        <a class="db pr oh" href="product-detail-layout-01.html">
-                                                            <img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%201000%201000%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="assets/images/home-electronic-vertical/pr-04-80x.jpg" class="w__100 lazyload lz_op_ef" alt="Ygoogle Speaker"/>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col widget_if_pr">
-                                                        <a class="product-title db" href="product-detail-layout-01.html">Ygoogle Speaker</a>$65.00
-                                                    </div>
-                                                </div>
-                                                <div class="row mb__10 pb__10">
-                                                    <div class="col widget_img_pr">
-                                                        <a class="db pr oh" href="product-detail-layout-01.html">
-                                                            <img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%201000%201000%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="assets/images/home-electronic-vertical/pr-05-80x.jpg" class="w__100 lazyload lz_op_ef" alt="Ybeoplay H9i"/>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col widget_if_pr">
-                                                        <a class="product-title db" href="product-detail-layout-01.html">Ybeoplay H9i</a>$55.00
-                                                    </div>
-                                                </div>
-                                                <a href="#" class="btn fwsb detail_link">View All(107)
-                                                    <i class="facl facl-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             </div>
                             <div class="col-lg-3 col-md-4 col-3 tr">
                                 <div class="nt_action in_flex al_center cart_des_1">
@@ -285,18 +183,20 @@
                                     <div class="footer-contact">
                                         <p>
                                             <a class="d-block" href="index.html">
-                                                <img class="w__100 mb__15 lazyload max-width__95px" src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20220%2066%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="Kalles Template" data-src="{{ asset('assets/images/svg/kalles.svg') }}">
+                                                <img class="w__100 mb__15 lazyload max-width__95px" src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20220%2066%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="Kalles Template" data-src="{{ asset('web_images/logo.png') }}">
                                             </a>
                                         </p>
                                         <p>
-                                            <i class="pegk pe-7s-map-marker"> </i><span>184 Main Rd E, St Albans <br> <span class="pl__30">VIC 3021, Australia</span></span>
+                                            <i class="pegk pe-7s-map-marker"> </i><span> 662 Street, Wakra, Qatar<br>
+                                                 {{-- <span class="pl__30">VIC 3021, Australia</span> --}}
+                                        </span>
                                         </p>
                                         <p><i class="pegk pe-7s-mail"></i>
-                                            <span><a href="mailto:contact@company.com">contact@company.com</a></span>
+                                            <span><a href="mailto:info@gareyqatar.com">info@gareyqatar.com</a></span>
                                         </p>
-                                        <p><i class="pegk pe-7s-call"></i> <span>+001 2233 456 </span></p>
+                                        <p><i class="pegk pe-7s-call"></i> <span>+974 33306077 </span></p>
                                         <div class="nt-social">
-                                            <a href="https://www.facebook.com" class="facebook cb ttip_nt tooltip_top">
+                                            <a href="https://www.facebook.com/gareyapp" class="facebook cb ttip_nt tooltip_top">
                                                 <span class="tt_txt">Follow on Facebook</span>
                                                 <i class="facl facl-facebook"></i>
                                             </a>
@@ -329,24 +229,12 @@
                                 </h3>
                                 <div class="menu_footer widget_footer">
                                     <ul class="menu">
+                                        @foreach (categories()->take(6) as $item)
+                                            
                                         <li class="menu-item">
-                                            <a href="shop-filter-options.html">Men</a>
+                                            <a href="{{ route('frontend.productbycategory', $item->id) }}">{{ $item->cat_name_en }}</a>
                                         </li>
-                                        <li class="menu-item">
-                                            <a href="shop-filter-options.html">Women</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="shop-1600px-layout.html">Accessories</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="shop-1600px-layout.html">Shoes</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="shop-1600px-layout.html">Denim</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="shop-1600px-layout.html">Dress</a>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -363,10 +251,10 @@
                                             <a href="about-us.html">About Us</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="contact-us.html">Contact Us</a>
+                                            <a href="{{ route('frontend.contact') }}">Contact Us</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="terms-conditions.html">Terms &amp; Conditions</a>
+                                            <a href="{{ route('frontend.terms') }}">Terms &amp; Conditions</a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="returns-exchanges.html">Returns &amp; Exchanges</a>
@@ -417,8 +305,13 @@
                                     <span class="txt_title">Download our app</span><span class="nav_link_icon ml__5"></span>
                                 </h3>
                                 <div class="widget_footer newl_des_1">
-                                   <img style="margin-bottom: 20px;" src="https://i.postimg.cc/VkPXWgmQ/image.png" alt="">
-                                   <img src="https://i.postimg.cc/nhKBRmhs/image.png" alt="">
+                                    <a href="https://play.google.com/store/apps/details?id=com.appix.garey" target="_blank">
+                                        <img style="margin-bottom: 20px;" src="https://i.postimg.cc/VkPXWgmQ/image.png" alt="">
+                                    </a>
+                                        
+                                    <a href="https://apps.apple.com/app/id1495042185" target="_blank">
+                                    <img src="https://i.postimg.cc/nhKBRmhs/image.png" alt="">
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -431,13 +324,12 @@
                 <div class="container pr tc">
                     <div class="row">
                         <div class="col-lg-6 col-md-12 col-12 col_1">Copyright © 2021
-                            <span class="cp">Kalles</span> all rights reserved. Powered by<a href="#"> The4</a></div>
+                            <span class="cp">Garey Trading Company in Qatar,CR.132476</span> all rights reserved.</div>
                         <div class="col-lg-6 col-md-12 col-12 col_2">
                             <ul id="footer-menu" class="clearfix">
-                                <li class="menu-item"><a href="#">Shop</a></li>
+                                <li class="menu-item"><a href="{{ route('frontend.products') }}">Shop</a></li>
                                 <li class="menu-item"><a href="#">About Us</a></li>
-                                <li class="menu-item"><a href="#">Contact</a></li>
-                                <li class="menu-item"><a href="blog-grid.html">Blog</a></li>
+                                <li class="menu-item"><a href="{{ route('frontend.contact') }}">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -638,7 +530,7 @@
 <!--end quick view-->
 
 <!--quick shop-->
-<div id="quick-shop-tpl" class="dn">
+{{-- <div id="quick-shop-tpl" class="dn">
     <div class="wrap_qs_pr buy_qs_false kalles-quick-shop">
         <div class="qs_imgs_i row al_center mb__30">
             <div class="col-auto cl_pr_img">
@@ -718,7 +610,7 @@
             <a href="product-detail-layout-01.html" class="btn fwsb detail_link dib mt__15">View full details<i class="facl facl-right"></i></a>
         </div>
     </div>
-</div>
+</div> --}}
 <!--end quick shop-->
 
 <!-- mini cart box -->
@@ -1298,7 +1190,7 @@
 <div id="kalles-section-toolbar_mobile" class="kalles-section">
     <div class="kalles_toolbar kalles_toolbar_label_true ntpf r__0 l__0 b__0 flex fl_between al_center">
         <div class="type_toolbar_shop kalles_toolbar_item">
-            <a href="shop-filter-options.html">
+            <a href="{{ route('frontend.products') }}">
                 <span class="toolbar_icon"></span>
                 <span class="kalles_toolbar_label">Shop</span>
             </a>
@@ -1380,7 +1272,7 @@
                 <li class="menu-item menu-item-infos">
                     <p class="menu_infos_title">Need help?</p>
                     <div class="menu_infos_text">
-                        <i class="pegk pe-7s-call fwb mr__10"></i>+33306077<br><i class="pegk pe-7s-mail fwb mr__10"></i><a class="cg" href="mailto:claue@domain.com">claue@domain.com</a>
+                        <i class="pegk pe-7s-call fwb mr__10"></i>+33306077<br><i class="pegk pe-7s-mail fwb mr__10"></i><a class="cg" href="mailto:info@gareyqatar.com">info@gareyqatar.com</a>
                     </div>
                 </li>
             </ul>
