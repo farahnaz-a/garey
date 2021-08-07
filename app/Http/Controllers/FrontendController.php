@@ -10,6 +10,7 @@ use App\Models\OrderDetail;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Artisan;
 
 class FrontendController extends Controller
 {
@@ -18,6 +19,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
+        Artisan::call('route:clear');
         return view('frontend.index', [
             
             'banner'      => Banner::first(),
