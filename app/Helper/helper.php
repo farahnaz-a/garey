@@ -52,3 +52,8 @@ function deliveryfee()
 {
     return App\Models\Setting::first()->delivery_fee;
 }
+
+function products()
+{
+    return \App\Models\Product::latest()->get();
+}
