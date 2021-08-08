@@ -19,6 +19,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
+        Artisan::call('route:clear');
         return view('frontend.index', [
             
             'banner'      => Banner::first(),
