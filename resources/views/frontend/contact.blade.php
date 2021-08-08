@@ -47,9 +47,9 @@
             <div class="contact-content col-12 col-md-6 m-auto order-0 order-md-1">
                 <h3 class="mb__20 mt__40">CONTACT INFORMATION</h3>
                 <p>We love to hear from you on our customer service, merchandise, website or any topics you want to share with us. Your comments and suggestions will be appreciated. Please complete the form below.</p>
-                <p class="mb__5 d-flex"><i class="las la-home fs__20 mr__10 text-primary"></i> 184 Main Rd E, St Albans Victoria 3021, Australia</p>
-                <p class="mb__5 d-flex"><i class="las la-phone fs__20 mr__10 text-primary"></i> 1800-123-222 / 1900-1570-230</p>
-                <p class="mb__5 d-flex"><i class="las la-envelope fs__20 mr__10 text-primary"></i> contact@company.com</p>
+                <p class="mb__5 d-flex"><i class="las la-home fs__20 mr__10 text-primary"></i>662 Street, Wakra, Qatar</p>
+                <p class="mb__5 d-flex"><i class="las la-phone fs__20 mr__10 text-primary"></i>  +974 33306077</p>
+                <p class="mb__5 d-flex"><i class="las la-envelope fs__20 mr__10 text-primary"></i> info@gareyqatar.com</p>
                 <p class="mb__5 d-flex"><i class="las la-clock fs__20 mr__10 text-primary"></i> Everyday 9:00-17:00</p>
             </div>
         </div>
