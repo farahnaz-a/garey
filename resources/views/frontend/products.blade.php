@@ -11,13 +11,44 @@
     <div class="page-head tc pr oh cat_bg_img page_head_">
         <div class="parallax-inner nt_parallax_false lazyload nt_bg_lz pa t__0 l__0 r__0 b__0" data-bgset="@isset($cat) {{ asset('web_images/categories/banners') }}/{{ $cat->id }}.jpg @else {{ asset('assets/images/shop/shop-banner.jpg') }}  @endisset"></div> 
         <div class="container pr z_100">
-            <h1 class="mb__5 cw">{{  $cat->cat_name_en ?? 'All Products' }}</h1>
+            <h1 class="mb__5 cw">
+                @if(isset($cat))
+                {{ $cat->cat_name_en }}
+                @elseif(isset($type))
+                {{ ucwords(str_replace('-', ' ', $type)) }}
+                @else 
+                All Products
+                @endif
+            </h1>
             <p class="mg__0">{{ $cat->desc ?? 'Shop through our latest selection of products.' }}</p>
         </div>
     </div>
 </div>
 <!--end shop banner-->
-
+        <!-- breadcrumb -->
+        <div class="bgbl pt__20 pb__20 lh__1">
+            <div class="container">
+                <div class="row al_center">
+                    <div class="col">
+                         <nav class="sp-breadcrumb">
+                            <a href="{{ url('/') }}">Home</a><i class="facl facl-angle-right"></i>
+                            @isset($type)
+                            <a href="{{ route('frontend.productType', $type) }}">{{ ucwords(str_replace('-', ' ', $type)) }}</a>
+                            @else 
+                            <a href="{{ route('frontend.products') }}">Products</a>
+                            @endisset
+                            {{-- <i class="facl facl-angle-right"></i>{{ $data->prod_title_en }} --}}
+                        </nav> 
+                    </div>
+                  {{--  <div class="col-auto flex al_center">
+                        <a href="product-detail-layout-01.html" class="pl__5 pr__5 fs__18 cd chp ttip_nt tooltip_bottom_left"><i class="las la-angle-left"></i><span class="tt_txt">Cream women pants</span></a>
+                        <a href="product-detail-layout-01.html" class="pl__5 pr__5 fs__20 cd chp ttip_nt tooltip_bottom_left"><i class="fwb iccl iccl-grid fs__15"></i><span class="tt_txt">Back to New Arrival</span></a>
+                        <a href="product-detail-layout-01.html" class="pl__5 pr__5 fs__18 cd chp ttip_nt tooltip_bottom_left"><i class="las la-angle-right"></i><span class="tt_txt">Short Sleeved Hoodie</span></a>
+                    </div>   --}}
+                </div>
+            </div>
+        </div>
+        <!-- end breadcrumb -->
 <div class="container container_cat pop_default cat_default mb__20">
 
     <!--grid control-->

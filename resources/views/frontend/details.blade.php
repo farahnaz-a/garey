@@ -137,7 +137,7 @@
                                                                     <i class="facl facl-minus"></i></button>
                                                             </div>
                                                         </div>
-                                                        <button type="button" id="addCart" data-time="6000" data-ani="shake" style="background: #56cfe1;border : none; color: #fff;" class="single_add_to_cart_button button truncate w__100  order-4 d-inline-block animated">
+                                                        <button type="button" id="addCart" data-time="6000" data-ani="shake" style="background: #861f3d;border : none; color: #fff;" class="single_add_to_cart_button button truncate w__100  order-4 d-inline-block animated">
                                                             <span class="txt_add ">Add to cart</span>
                                                         </button>
                                                         {{-- <form method="POST" action="{{ route('cart.store') }}">

@@ -144,7 +144,7 @@
                @endforelse
             </div>
             <div class="products-footer tc mt__40">
-                <a class="se_cat_lm pr nt_cat_lm button button_dark br_rd_false btn_icon_false" href="#">View All</a>
+                <a class="se_cat_lm pr  button button_dark br_rd_false btn_icon_false" href="{{ route('frontend.productType', $type = 'new-arrival') }}">View All</a>
             </div>
         </div>
     </div>
@@ -205,7 +205,7 @@
                @endforelse
             </div>
             <div class="products-footer tc mt__40">
-                <a class="se_cat_lm pr nt_cat_lm button button_dark br_rd_false btn_icon_false" href="#">View All</a>
+                <a class="se_cat_lm pr  button button_dark br_rd_false btn_icon_false" href="{{ route('frontend.productType', $type = 'recommended') }}">View All</a>
             </div>
         </div>
     </div>
@@ -266,7 +266,7 @@
                @endforelse
             </div>
             <div class="products-footer tc mt__40">
-                <a class="se_cat_lm pr nt_cat_lm button button_dark br_rd_false btn_icon_false" href="#">View All</a>
+                <a class="se_cat_lm pr  button button_dark br_rd_false btn_icon_false" href="{{ route('frontend.productType', $type = 'best-value') }}">View All</a>
             </div>
         </div>
     </div>
@@ -330,7 +330,7 @@
                @endforelse
             </div>
             <div class="products-footer tc mt__40">
-                <a class="se_cat_lm pr nt_cat_lm button button_dark br_rd_false btn_icon_false" href="#">View All</a>
+                <a class="se_cat_lm pr button button_dark br_rd_false btn_icon_false" href="{{ route('frontend.productType', $type = 'best-seller') }}">View All</a>
             </div>
         </div>
     </div>

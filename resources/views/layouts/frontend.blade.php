@@ -144,17 +144,17 @@
                                 </nav>
                             </div>
                             <div class="col-3 fs__12 ha8_txt tr">
-                                <a href="mailto:kalles@domain.com" class="ttip_nt tooltip_top mr__10">
-                                    <span class="tt_txt">kalles@domain.com</span>
+                                <a href="mailto:info@gareyqatar.com" class="ttip_nt tooltip_top mr__10">
+                                    <span class="tt_txt">info@gareyqatar.com</span>
                                     <i class="las la-envelope fs__14 mr__5"></i><span>contact</span>
                                 </a>
-                                <a class="ttip_nt tooltip_top mr__10">
+                                {{-- <a class="ttip_nt tooltip_top mr__10">
                                     <span class="tt_txt">Time: 08:00 - 17:00</span>
                                     <i class="las la-clock fs__14 mr__5"></i><span>08:00 - 17:00</span>
-                                </a>
+                                </a> --}}
                                 <a href="tel:+01%2023456789" class="ttip_nt tooltip_top">
-                                    <span class="tt_txt">Phone: +01 23456789</span>
-                                    <i class="las la-phone fs__14 mr__5"></i><span>+01 23456789</span>
+                                    <span class="tt_txt">Phone:+974 33306077</span>
+                                    <i class="las la-phone fs__14 mr__5"></i><span>+974 33306077</span>
                                 </a>
                             </div>
                         </div>

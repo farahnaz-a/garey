@@ -36,6 +36,67 @@ class FrontendController extends Controller
     }
 
     /**
+     *  Product Type   
+     */
+    public function productType($type)
+    {
+       if($type == 'best-seller')
+       {
+        $products = OrderDetail::with('get_product_info')
+                                    ->select('prod_id', DB::raw('count(*) as total'))
+                                    ->groupBy('prod_id')
+                                    // ->where('created_at', '>', Carbon::now()->subDays(30) )
+                                    ->orderBy('total', 'desc')
+                                    ->simplePaginate(50);
+
+        $brands = DB::table('products')
+                      ->select('manufacture_en', DB::raw('count(*) as total'))
+                      ->groupBy('manufacture_en')
+                      ->get();
+
+         return view('frontend.products', compact('products', 'brands', 'type'));
+       }
+       elseif($type == 'best-value')
+       {
+            $products = Product::where('status', 'active')->where('display_as', 'best price')->simplePaginate(50);
+
+            $brands = DB::table('products')
+                        ->select('manufacture_en', DB::raw('count(*) as total'))
+                        ->groupBy('manufacture_en')
+                        ->get();
+
+            return view('frontend.products', compact('products', 'brands', 'type'));
+
+       }
+       elseif($type == 'new-arrival')
+       {
+          $products = Product::where('status', 'active')->where('created_at', '>', Carbon::now()->subDays(30))->simplePaginate(50);
+          $brands = DB::table('products')
+                      ->select('manufacture_en', DB::raw('count(*) as total'))
+                      ->groupBy('manufacture_en')
+                      ->get();
+  
+                return view('frontend.products', compact('products', 'brands', 'type'));
+       }
+       elseif($type == 'recommended')
+       {
+          $products = Product::where('status', 'active')->where('display_as', 'recommended')->simplePaginate(50);
+          $brands = DB::table('products')
+                      ->select('manufacture_en', DB::raw('count(*) as total'))
+                      ->groupBy('manufacture_en')
+                      ->get();
+  
+                return view('frontend.products', compact('products', 'brands', 'type'));          
+          
+       }
+       else 
+       {
+            return redirect()->route('frontend.products');
+       }
+
+    }
+    
+    /**
      *  Product Page 
      */
     public function products()

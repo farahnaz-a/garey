@@ -21,6 +21,7 @@ use App\Http\Controllers\CustomLoginController;
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('/sub-categories', [FrontendController::class, 'subCategories'])->name('frontend.subCategories');
 Route::get('/products', [FrontendController::class, 'products'])->name('frontend.products');
+Route::get('/products/{type}', [FrontendController::class, 'productType'])->name('frontend.productType');
 Route::get('/product/by/{id}/category', [FrontendController::class, 'productbycategory'])->name('frontend.productbycategory');
 Route::get('/product/by/{id}/subcategory', [FrontendController::class, 'productbysubcategory'])->name('frontend.productbysubcategory');
 Route::get('/product/{id}/details', [FrontendController::class, 'productDetails'])->name('frontend.productDetails');

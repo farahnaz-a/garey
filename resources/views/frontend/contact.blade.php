@@ -6,6 +6,26 @@
 
 @section('content')
 <div id="nt_content">
+            <!-- breadcrumb -->
+            <div class="bgbl pt__20 pb__20 lh__1">
+                <div class="container">
+                    <div class="row al_center">
+                        <div class="col">
+                             <nav class="sp-breadcrumb">
+                                <a href="{{ url('/') }}">Home</a>
+                                {{-- <i class="facl facl-angle-right"></i> --}}
+                                <i class="facl facl-angle-right"></i>Contact us
+                            </nav> 
+                        </div>
+                      {{--  <div class="col-auto flex al_center">
+                            <a href="product-detail-layout-01.html" class="pl__5 pr__5 fs__18 cd chp ttip_nt tooltip_bottom_left"><i class="las la-angle-left"></i><span class="tt_txt">Cream women pants</span></a>
+                            <a href="product-detail-layout-01.html" class="pl__5 pr__5 fs__20 cd chp ttip_nt tooltip_bottom_left"><i class="fwb iccl iccl-grid fs__15"></i><span class="tt_txt">Back to New Arrival</span></a>
+                            <a href="product-detail-layout-01.html" class="pl__5 pr__5 fs__18 cd chp ttip_nt tooltip_bottom_left"><i class="las la-angle-right"></i><span class="tt_txt">Short Sleeved Hoodie</span></a>
+                        </div>   --}}
+                    </div>
+                </div>
+            </div>
+            <!-- end breadcrumb -->
 
     <!--hero banner-->
     {{-- <div class="kalles-section page_section_heading">
@@ -46,7 +66,7 @@
             </div> --}}
             <div class="contact-content col-12 col-md-6 m-auto order-0 order-md-1">
                 <h3 class="mb__20 mt__40">CONTACT INFORMATION</h3>
-                <p>We love to hear from you on our customer service, merchandise, website or any topics you want to share with us. Your comments and suggestions will be appreciated. Please complete the form below.</p>
+                <p>We love to hear from you on our customer service, merchandise, website or any topics you want to share with us. Your comments and suggestions will be appreciated.</p>
                 <p class="mb__5 d-flex"><i class="las la-home fs__20 mr__10 text-primary"></i>662 Street, Wakra, Qatar</p>
                 <p class="mb__5 d-flex"><i class="las la-phone fs__20 mr__10 text-primary"></i>  +974 33306077</p>
                 <p class="mb__5 d-flex"><i class="las la-envelope fs__20 mr__10 text-primary"></i> info@gareyqatar.com</p>
