@@ -1007,7 +1007,7 @@
         <div class="type_toolbar_cart kalles_toolbar_item">
             <a href="#" class="push_side" data-id="#nt_cart_canvas">
 				<span class="toolbar_icon">
-					<span class="jsccount toolbar_count">{{ $total }}</span>
+					{{-- <span id="cart-count-tool" class="toolbar_count">{{ $total }}</span> --}}
 				</span>
                 <span class="kalles_toolbar_label">Cart</span>
             </a>
@@ -1279,6 +1279,7 @@
               {
                   $("#cart-push").html(data.carts); 
                   $("#cart-count").html(data.total);
+                  $("#cart-count-tool").html(data.total);
                   $("#cart-total").html(data.subtotal);
                   
               } 
