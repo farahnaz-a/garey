@@ -76,8 +76,8 @@
                         <a href="{{ route('frontend.productbycategory', $category->id) }}" class="db cat_grid_item__link">
                             <div class="cat_grid_item__overlay item__position nt_bg_lz lazyload center" data-bgset="{{ asset('web_images/categories') }}/{{ $category->id }}.jpg"></div>
                         </a>
-                        <div class="cat_grid_item__wrapper pe_none">
-                            <div class="cat_grid_item__title">{{ ucfirst($category->cat_name_en) }}</div>
+                        <div class="cat_grid_item__wrapper pe_none" style="background:#861f3d !important;">
+                            <div class="cat_grid_item__title" style="color : #fff !important;">{{ ucfirst($category->cat_name_en) }}</div>
                         </div>
                     </div>
                 </div>

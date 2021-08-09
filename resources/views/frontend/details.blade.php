@@ -103,18 +103,7 @@
                                     <h1 class="product_title entry-title fs__16">{{ $data->prod_title_en }}</h1>
                                     <div class="flex wrap fl_between al_center price-review">
                                         <p class="price_range" id="price_ppr">QAR {{ $data->price }}</p>
-                                        <a href="#tab_reviews_product" class="rating_sp_kl dib">
-                                            <div class="kalles-rating-result">
-                                                <span class="kalles-rating-result__pipe">
-                                                    <span class="kalles-rating-result__start kalles-rating-result__start--big"></span>
-                                                    <span class="kalles-rating-result__start kalles-rating-result__start--big"></span>
-                                                    <span class="kalles-rating-result__start kalles-rating-result__start--big"></span>
-                                                    <span class="kalles-rating-result__start kalles-rating-result__start--big active"></span>
-                                                    <span class="kalles-rating-result__start kalles-rating-result__start--big"></span>
-                                                </span>
-                                                <span class="kalles-rating-result__number">(06 reviews)</span>
-                                            </div>
-                                        </a>
+                                    
                                     </div>
                                     <div class="pr_short_des">
                                         <p class="mg__0">{{ $data->prod_details_en }}</p>
@@ -216,9 +205,9 @@
                             <a class="db cg truncate pr" href="#tab_product_description">Description</a>
                         </li>
                        
-                        <li class="tab_title_block">
+                        {{-- <li class="tab_title_block">
                             <a class="db cg truncate pr" href="#tab_reviews_product">Reviews</a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <!-- end tab buttons -->
 
@@ -454,7 +443,7 @@
                                     </div>
                                     <div class="hover_button op__0 tc pa flex column ts__03">
                                    
-                                        <a href="#" class="pr pr_atc cd br__40 bgw tc dib cb chp ttip_nt tooltip_top_left"><span class="tt_txt">Quick Shop</span><i class="iccl iccl-cart"></i><span>Quick Shop</span></a>
+                                        <a href="{{ route('frontend.productDetails', $product->id ?? '') }}" class="pr pr_atc cd br__40 bgw tc dib cb chp ttip_nt tooltip_top_left"><span class="tt_txt">Quick Shop</span><i class="iccl iccl-cart"></i><span>Quick Shop</span></a>
                                     </div>
                                 </div>
                                 <div class="product-info mt__15">

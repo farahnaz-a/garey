@@ -115,7 +115,7 @@
                     <div class="container">
                         <div class="row no-gutters al_center">
                             <div class="col-auto ha8_cat">
-                                <h5 class="mg__0 fs__14 flex al_center">
+                                <h5 class="mg__0 fs__14 flex al_center" style="background-color : #70142F !important;">
                                     <i class="las la-bars mr__5 fs__18"></i><span class="dib truncate">SHOP BY CATEGORY</span>
                                 </h5>
                                 <div class="h_cat_nav pa op__0 mh_js_cat">
@@ -688,7 +688,7 @@
                         <path d="M9 20l-7-7 3-3 4 4L19 4l3 3z"></path>
                     </svg>
                 </p>
-                <a href="{{ route('cart.index') }}" class="button btn-cart mt__10 mb__10 js_add_ld d-inline-flex justify-content-center align-items-center cd-imp">View cart</a>
+                <a style="background: #000; color : #fff;" href="{{ route('cart.index') }}" class="button btn-cart mt__10 mb__10 js_add_ld d-inline-flex justify-content-center align-items-center cd-imp">View cart</a>
 
                <a href="{{ route('checkout.index') }}" class="button btn-checkout mt__10 mb__10 js_add_ld d-inline-flex justify-content-center align-items-center text-white">Check Out</a>
 
