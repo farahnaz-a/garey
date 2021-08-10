@@ -1237,7 +1237,10 @@
 
   @foreach($carts as $item)
     $(document).ready(function () {
-        $("#remove{{ $item->id }}").on("click", function(){
+ 
+        // $("#remove{{ $item->id }}").on("click", function(){
+            $("#cart-push").on("click", "#remove{{ $item->id }}", function(e){
+                e.preventDefault();
           
           let product_id   = $("input[name=product_id{{ $item->id }}]").val();
           let cart_amount  = $("input[name=cart_amount{{ $item->id }}]").val(); 

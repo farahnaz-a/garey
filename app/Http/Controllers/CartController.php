@@ -81,16 +81,22 @@ class CartController extends Controller
 
     }
 
-    public function delete($cart_id)
-    {
-      Cart::find($cart_id)->delete();
-      $carts = CartItems();
-      $subtotal = cartTotal();
-      $view = view('includes.cartloop', compact('carts', 'subtotal')); 
-      $data = $view->render();
-      $total = cartCount();
+    // public function delete($cart_id)
+    // {
+    //   Cart::find($cart_id)->delete();
+    //   $carts = CartItems();
+    //   $subtotal = cartTotal();
+    //   $view = view('includes.cartloop', compact('carts', 'subtotal')); 
+    //   $data = $view->render();
+    //   $total = cartCount();
      
-      return response()->json(['carts' => $data, 'total' => $total, 'subtotal' => $subtotal]);
+    //   return response()->json(['carts' => $data, 'total' => $total, 'subtotal' => $subtotal]);
+    // }
+    public function destroy($id)
+    {
+      Cart::find($id)->delete();
+     
+      return back()->withCartopen('done');
     }
 
     public function cartUpdate(Request $request)

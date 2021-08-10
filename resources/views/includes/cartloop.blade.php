@@ -27,7 +27,9 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <a style="cursor: pointer" class="rem" id="remove{{ $item->id }}"><span class="tt_txt">Remove this item</span>
+                                    <a href="{{ route('cart.destroy', $item->id) }}" style="cursor: pointer" class="rem" 
+                                        {{-- id="remove{{ $item->id }}" --}}
+                                        ><span class="tt_txt">Remove this item</span>
                                         Remove
                                     </a>
                                     <input type="hidden" name="product_id{{ $item->id }}" value="{{ $item->get_product->id ?? '' }}">

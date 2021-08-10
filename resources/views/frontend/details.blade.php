@@ -328,7 +328,6 @@
 <script>
     $(document).ready(function () {
         $("#addCart").click(function(){
-          
           let product_id   = $("input[name=product_id]").val();
           let cart_amount  = $("input[name=cart_amount]").val(); 
 

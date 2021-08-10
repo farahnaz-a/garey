@@ -14,9 +14,8 @@
                                  <nav class="sp-breadcrumb">
                                     <a href="{{ url('/') }}">Home</a>
                                     {{-- <i class="facl facl-angle-right"></i> --}}
-                                    <i class="facl facl-angle-right"></i>Login
                                     <i class="facl facl-angle-right"></i>
-                                    <a href="{{ route('dashboard') }}">My Account</a>
+                                    <a href="{{ route('dashboard') }}">My Orders</a>
                                 </nav> 
                             </div>
                           {{--  <div class="col-auto flex al_center">

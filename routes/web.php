@@ -43,6 +43,7 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::get('/dokaner/list', [CartController::class, 'list'])->name('cart.list');
 Route::get('/cart/{coupon_name}', [CartController::class, 'index']);
 Route::get('/cart/{cart_id}/delete', [CartController::class, 'delete'])->name('cart.delete');
+Route::get('/dddd/{id}/destroy', [CartController::class, 'destroy'])->name('cart.destroy');
 Route::post('/cart/update', [CartController::class, 'cartUpdate'])->name('cart.custom.update');
 
 // CheckoutController 
