@@ -27,7 +27,8 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <a href="{{ route('cart.destroy', $item->id) }}" style="cursor: pointer" class="rem" 
+                                    {{-- <a href="{{ route('cart.destroy', $item->id) }}" style="cursor: pointer" class="rem"  --}}
+                                    <a data-id="{{ $item->id }}" style="cursor: pointer" class="rem" 
                                         {{-- id="remove{{ $item->id }}" --}}
                                         ><span class="tt_txt">Remove this item</span>
                                         Remove

@@ -1235,16 +1235,10 @@
       });
    });
 
-  @foreach($carts as $item)
-    $(document).ready(function () {
- 
-        // $("#remove{{ $item->id }}").on("click", function(){
-            $("#cart-push").on("click", "#remove{{ $item->id }}", function(e){
-                e.preventDefault();
-          
-          let product_id   = $("input[name=product_id{{ $item->id }}]").val();
-          let cart_amount  = $("input[name=cart_amount{{ $item->id }}]").val(); 
-
+   $(document).ready(function(){
+       $("#cart-push").on("click", ".rem", function(){
+           let removeBtn = $(this); 
+           let id = removeBtn.data('id'); 
           $.ajaxSetup({
               headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1252,7 +1246,7 @@
           });
 
           $.ajax({
-              url : "{{ route('cart.delete', $item->id) }}", 
+              url : "/cart/" + id + "/delete", 
               type: 'GET', 
               success: function(data)
               {
@@ -1264,9 +1258,41 @@
               } 
           });
 
-        });
-    });
-    @endforeach
+       });
+   });
+
+//   @foreach($carts as $item)
+//     $(document).ready(function () {
+ 
+//         // $("#remove{{ $item->id }}").on("click", function(){
+//             $("#cart-push").on("click", "#remove{{ $item->id }}", function(e){
+//                 e.preventDefault();
+          
+//           let product_id   = $("input[name=product_id{{ $item->id }}]").val();
+//           let cart_amount  = $("input[name=cart_amount{{ $item->id }}]").val(); 
+
+//           $.ajaxSetup({
+//               headers: {
+//                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//               }
+//           });
+
+//           $.ajax({
+//               url : "{{ route('cart.delete', $item->id) }}", 
+//               type: 'GET', 
+//               success: function(data)
+//               {
+//                   $("#cart-push").html(data.carts); 
+//                   $("#guno").html(data.total);
+//                   $("#cart-count").html(data.total);
+//                   $("#cart-total").html(data.subtotal);
+                  
+//               } 
+//           });
+
+//         });
+//     });
+//     @endforeach
 </script>
 
 </body>
