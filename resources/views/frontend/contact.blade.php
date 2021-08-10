@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title')
-    {{ config('app.name') }} | Contact us
+Garey Store for Electronics in Qatar | Contact us
 @endsection
 
 @section('content')

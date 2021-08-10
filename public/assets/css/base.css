@@ -5669,7 +5669,15 @@ input[type="checkbox"] {
 /* ==========================================================================
    RESSPONSIVE
    ========================================================================== */
-
+@media (max-width: 767px)
+{
+    #addCart {
+        margin-top:10px !important; 
+    }
+    #car {
+        display:none !important;
+    }
+}
 @media (min-width: 500px) {
     .medizin_laypout .product-cd-heading,
     .medizin_laypout .countdown-label {

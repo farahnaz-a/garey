@@ -138,7 +138,7 @@ class FrontendController extends Controller
                 ->groupBy('manufacture_en')
                 ->get();
 
-       return view('frontend.products', compact('cat', 'products', 'brands'));
+       return view('frontend.products', compact('cat', 'subcat', 'products', 'brands'));
     }
 
     /**
@@ -215,7 +215,7 @@ class FrontendController extends Controller
 
      
         $input   = $request->price;
-        $output  = str_replace('QAR', ' ', $request->price);
+        $output  = str_replace('>', ' ', $request->price);
         $explode = explode('-', $output); 
 
         $min = $explode[0];
@@ -290,6 +290,22 @@ class FrontendController extends Controller
     public function terms()
     {
        return view('frontend.terms');
+    }
+
+    /**
+     *  Faq 
+     */
+    public function faqs()
+    {
+        return view('frontend.faqs'); 
+    }
+
+    /**
+     *  About us 
+     */
+    public function about()
+    {
+        return view('frontend.about');
     }
 
 // END    

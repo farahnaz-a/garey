@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title')
-    {{ config('app.name') }} | Checkout
+Garey Store for Electronics in Qatar | Checkout
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-7">
                 <div class="checkout-section">
-                    <h3 class="checkout-section__title">Delivery details</h3>
+                    <h3 class="checkout-section__title" style="color : #861f3d !important;">Delivery details</h3>
                     <form action="{{ route('checkout.store') }}" method="POST">
                         @csrf
                     <div class="row">
@@ -54,8 +54,19 @@
                         </p> --}}
                         <p class="checkout-section__field col-12">
                             <label for="address_01">Address *</label>
-                            <input type="text" id="address_01" value="{{ old('address_one') }}" class="mb__20" name="address_one" placeholder="Enter your address (Area name, Zone#, Street#, Building#, Unit#)">
-                            <input type="text" id="address_02" value="{{ old('delivery_note') }}" class="mb__20" name="address_one" placeholder="Optional (Any special notes for delivery?)">
+                            <input type="text" id="address_01"
+                            @guest 
+                            value="{{ old('address_one') }}" 
+                            @endguest
+                            @auth
+                                @if(\App\Models\Order::where('user_id', Auth::id())->exists())
+                                value="{{ \App\Models\Order::where('user_id', Auth::id())->first()->delivery_address ?? old('address_one') }}"
+                                @else 
+                                value="{{ old('address_one') }}"
+                                @endif
+                            @endauth
+                            class="mb__20" name="address_one" placeholder="Enter your address (Area name, Zone#, Street#, Building#, Unit#)">
+                            <input type="text" id="address_02" value="{{ old('delivery_note') }}" class="mb__20" name="delivery_note" placeholder="Optional (Any special notes for delivery?)">
                             @error('address_one')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -81,7 +92,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-5 mt__50 mb__80 mt-md-0 mb-md-0">
                 <div class="order-review__wrapper">
-                    <h3 class="order-review__title">Your order</h3>
+                    <h3 class="order-review__title" style="color : #861f3d !important;">Your order</h3>
                     <div class="checkout-order-review">
                         <table class="checkout-review-order-table">
                             <thead>
@@ -120,7 +131,7 @@
                                     <input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="bacs" checked="checked">
                                     <label for="payment_method_bacs">Cash on delivery</label>
                                     <div class="payment_box payment_method_bacs">
-                                        <p>Delivery within (24 - 48)hrs upon placing the order.</p>
+                                        <p>Delivery within (24 - 48)hrs.</p>
                                     </div>
                                 </li>
                                 {{-- <li class="payment_method">
@@ -163,11 +174,11 @@
                             <p class="checkout-payment__policy-text">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="#">privacy policy</a>.
                             </p>
                             <label class="checkout-payment__confirm-terms-and-conditions">
-                                <input required type="checkbox" name="terms" id="terms">
-                                <span>I have read and agreed to the website <a href="#" class="terms-and-conditions-link">terms and conditions</a></span>&nbsp;<span class="required">*</span>
+                                <input required type="checkbox" value="1" {{ (old('terms')) ? 'checked' : '' }} name="terms" id="terms">
+                                <span>I have read and agreed to the website <a href="{{ route('frontend.terms') }}" class="terms-and-conditions-link">terms and conditions</a></span>&nbsp;<span class="required">*</span>
                             </label>
                             <input type="hidden" name="total_payable" value="{{ cartTotal() + deliveryfee() }}.00">
-                            <button type="subit" class="button button_primary btn checkout-payment__btn-place-order">Place order</button>
+                            <button type="subit" class="button button_primary btn checkout-payment__btn-place-order">Place order now</button>
                         </form>
                         </div>
                     </div>

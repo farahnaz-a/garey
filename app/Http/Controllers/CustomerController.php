@@ -18,7 +18,7 @@ class CustomerController extends Controller
 
   public function index()
   {
-      return view('customer.dashboard', ['orders' => Order::where('user_id', Auth::id())->get()]);
+      return view('customer.dashboard', ['orders' => Order::where('user_id', Auth::id())->orderBy('id', 'desc')->get()]);
   }
 
 // END  

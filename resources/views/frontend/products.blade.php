@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title')
-    {{ config('app.name') }} | Product Lists
+    Garey Store for Electronics in Qatar | {{ $cat->cat_name_en ?? 'Product Lists' }} @if(Route::is('frontend.productbysubcategory')) | {{ $subcat->subcat_name_en }} @endif
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
   <!--shop banner-->
   <div class="kalles-section page_section_heading">
     <div class="page-head tc pr oh cat_bg_img page_head_">
-        <div class="parallax-inner nt_parallax_false lazyload nt_bg_lz pa t__0 l__0 r__0 b__0" data-bgset="@isset($cat) {{ asset('web_images/categories/banners') }}/{{ $cat->id }}.jpg @else {{ asset('assets/images/shop/shop-banner.jpg') }}  @endisset"></div> 
+        <div class="parallax-inner nt_parallax_false lazyload nt_bg_lz pa t__0 l__0 r__0 b__0" data-bgset="@isset($cat) {{ asset('web_images/categories/banners') }}/{{ $cat->id }}.jpg @else {{ asset('web_images/categories/banners/search.jpg') }}  @endisset"></div> 
         <div class="container pr z_100">
             <h1 class="mb__5 cw">
                 @if(isset($cat))
@@ -32,11 +32,17 @@
                     <div class="col">
                          <nav class="sp-breadcrumb">
                             <a href="{{ url('/') }}">Home</a><i class="facl facl-angle-right"></i>
-                            @isset($type)
+                            @if(isset($type))
                             <a href="{{ route('frontend.productType', $type) }}">{{ ucwords(str_replace('-', ' ', $type)) }}</a>
+                            @elseif(isset($cat))
+                            <a href="{{ route('frontend.productbycategory', $cat->id) }}">{{ $cat->cat_name_en }}</a>
+                            @if(Route::is('frontend.productbysubcategory')) 
+                            <i class="facl facl-angle-right"></i>
+                            <a href="{{ route('frontend.productbysubcategory', $subcat->id) }}">{{ $subcat->subcat_name_en }}</a>
+                            @endif
                             @else 
                             <a href="{{ route('frontend.products') }}">Products</a>
-                            @endisset
+                            @endif
                             {{-- <i class="facl facl-angle-right"></i>{{ $data->prod_title_en }} --}}
                         </nav> 
                     </div>
@@ -75,7 +81,7 @@
         </div>
         <div class="cat_sortby cat_sortby_js col tr kalles_dropdown kalles_dropdown_container">
             <a class="in_flex fl_between al_center sortby_pick kalles_dropDown_label" href="#">
-                <span class="lbl-title sr_txt dn">Featured</span>
+                <span class="lbl-title sr_txt dn">Sort by</span>
                 <span class="lbl-title sr_txt_mb">Sort by</span>
                 <i class="ml__5 mr__5 facl facl-angle-down"></i>
             </a>
@@ -159,22 +165,25 @@
                                     <div class="loke_scroll">
                                         <ul class="nt_filter_block nt_filter_styleck css_ntbar">
                                             <li id="7">
-                                                <a href="#" aria-label="Narrow selection to products matching tag price $50-$100">QAR50-QAR100</a>
+                                                <a href="#" aria-label="Narrow selection to products matching tag price $50-$100">0-250</a>
                                             </li>
                                             <li id="8">
-                                                <a href="#" aria-label="Narrow selection to products matching tag price $100-$150">QAR100-QAR150</a>
+                                                <a href="#" aria-label="Narrow selection to products matching tag price $100-$150">250-500</a>
                                             </li>
                                             <li id="9">
-                                                <a href="#" aria-label="Narrow selection to products matching tag price $150-$200">QAR150-QAR200</a>
+                                                <a href="#" aria-label="Narrow selection to products matching tag price $150-$200">500-1000</a>
                                             </li>
                                             <li id="10">
-                                                <a href="#" aria-label="Narrow selection to products matching tag price $250-$300">QAR250-QAR300</a>
+                                                <a href="#" aria-label="Narrow selection to products matching tag price $250-$300">1000-2000</a>
                                             </li>
                                             <li id="11">
-                                                <a href="#" aria-label="Narrow selection to products matching tag price $350-$400">QAR350-QAR400</a>
+                                                <a href="#" aria-label="Narrow selection to products matching tag price $350-$400">2000-3000</a>
                                             </li>
                                             <li id="12">
-                                                <a href="#" aria-label="Narrow selection to products matching tag price $450-$500">QAR450-QAR500</a>
+                                                <a href="#" aria-label="Narrow selection to products matching tag price $450-$500">3000-4000</a>
+                                            </li>
+                                            <li id="13">
+                                                <a href="#" aria-label="Narrow selection to products matching tag price $450-$500"> >4000 <span class="dn">-99999999999999999999999999999999999999999999999999999</span> </a>
                                             </li>
                                         </ul>
                                     </div>

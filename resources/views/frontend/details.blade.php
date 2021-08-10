@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title')
-    {{ config('app.name') }} | Product Details
+    Garey Store for Electronics in Qatar | {{ \App\Models\Category::find($data->prod_cat_id)->cat_name_en }} | {{ \App\Models\Subcategory::find($data->prod_subcat_id)->subcat_name_en }} | {{ $data->prod_title_en }}
 @endsection
 
 @section('css')
@@ -23,7 +23,12 @@
                 <div class="row al_center">
                     <div class="col">
                          <nav class="sp-breadcrumb">
-                            <a href="{{ url('/') }}">Home</a><i class="facl facl-angle-right"></i><a href="{{ route('frontend.productbysubcategory', $data->prod_subcat_id) }}">{{ \App\Models\Subcategory::find($data->prod_subcat_id)->subcat_name_en }}</a><i class="facl facl-angle-right"></i>{{ $data->prod_title_en }}
+                            <a href="{{ url('/') }}">Home</a>
+                            <i class="facl facl-angle-right"></i>
+                            <a href="{{ route('frontend.productbycategory', $data->prod_cat_id) }}">{{ \App\Models\Category::find($data->prod_cat_id)->cat_name_en }}</a>
+                            <i class="facl facl-angle-right"></i>
+                            <a href="{{ route('frontend.productbysubcategory', $data->prod_subcat_id) }}">{{ \App\Models\Subcategory::find($data->prod_subcat_id)->subcat_name_en }}</a>
+                            <i class="facl facl-angle-right"></i>{{ $data->prod_title_en }}
                         </nav> 
                     </div>
                   {{--  <div class="col-auto flex al_center">
@@ -55,8 +60,8 @@
                                                 data-bgset="{{ asset('web_images/products/thumb') }}/{{ $data->id ?? '' }}.jpg"
                                                 data-src="{{ asset('web_images/products/thumb') }}/{{ $data->id ?? '' }}.jpg"
                                                 data-ratio="0.7838776928422516"
-                                                data-width="1128"
-                                                data-height="1439"
+                                                data-width="1200"
+                                                data-height="800"
                                                 data-cap="{{ $data->prod_title_en }}"
                                                 style="padding-top:70%"
                                         >
@@ -72,8 +77,8 @@
                                         data-bgset="{{ asset('web_images/products') }}/{{ $item->id ?? '' }}.jpg"
                                         data-src="{{ asset('web_images/products') }}/{{ $item->id ?? '' }}.jpg"
                                         data-ratio="0.7838776928422516"
-                                        data-width="1128"
-                                        data-height="1439"
+                                        data-width="1200"
+                                        data-height="800"
                                         data-cap="{{ $data->prod_title_en }}"
                                         style="padding-top:70%;"
                                 >
@@ -149,21 +154,14 @@
                                     </div>
                                     <div class="social-share tc">
                                         <div class="at-share-btn-elements kalles-social-media d-block text-left fs__0 lh__1">
-                                            <a href="https://www.facebook.com/" class="at-icon-wrapper at-share-btn at-svc-facebook bg-white kalles-social-media__btn">
+                                            <a href="https://www.facebook.com/gareystore" class="at-icon-wrapper at-share-btn at-svc-facebook bg-white kalles-social-media__btn">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="at-icon at-icon-facebook">
                                                     <g>
                                                         <path d="M22 5.16c-.406-.054-1.806-.16-3.43-.16-3.4 0-5.733 1.825-5.733 5.17v2.882H9v3.913h3.837V27h4.604V16.965h3.823l.587-3.913h-4.41v-2.5c0-1.123.347-1.903 2.198-1.903H22V5.16z" fill-rule="evenodd"></path>
                                                     </g>
                                                 </svg>
                                             </a>
-                                            <a href="https://twitter.com/" class="at-icon-wrapper at-share-btn at-svc-twitter bg-white kalles-social-media__btn">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="at-icon at-icon-twitter">
-                                                    <g>
-                                                        <path d="M27.996 10.116c-.81.36-1.68.602-2.592.71a4.526 4.526 0 0 0 1.984-2.496 9.037 9.037 0 0 1-2.866 1.095 4.513 4.513 0 0 0-7.69 4.116 12.81 12.81 0 0 1-9.3-4.715 4.49 4.49 0 0 0-.612 2.27 4.51 4.51 0 0 0 2.008 3.755 4.495 4.495 0 0 1-2.044-.564v.057a4.515 4.515 0 0 0 3.62 4.425 4.52 4.52 0 0 1-2.04.077 4.517 4.517 0 0 0 4.217 3.134 9.055 9.055 0 0 1-5.604 1.93A9.18 9.18 0 0 1 6 23.85a12.773 12.773 0 0 0 6.918 2.027c8.3 0 12.84-6.876 12.84-12.84 0-.195-.005-.39-.014-.583a9.172 9.172 0 0 0 2.252-2.336" fill-rule="evenodd"></path>
-                                                    </g>
-                                                </svg>
-                                            </a>
-                                            <a href="https://www.google.com/gmail/about" class="at-icon-wrapper at-share-btn at-svc-email bg-white">
+                                            <a href="mailto:info@gareyqatar.com" class="at-icon-wrapper at-share-btn at-svc-email bg-white">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="at-icon at-icon-email kalles-social-media__btn">
                                                     <g>
                                                         <g fill-rule="evenodd"></g>
@@ -172,10 +170,10 @@
                                                     </g>
                                                 </svg>
                                             </a>
-                                            <a href="https://www.pinterest.com/" class="at-icon-wrapper at-share-btn at-svc-pinterest_share bg-white kalles-social-media__btn">
+                                            <a href="https://www.instagram.com/gareyqatar" class="at-icon-wrapper at-share-btn at-svc-pinterest_share bg-white kalles-social-media__btn">
                                                <img src="{{ asset('in.svg') }}" width="20" style="margin-bottom: 5px; height: 18px;" alt="">
                                             </a>
-                                            <a href="https://www.messenger.com" class="at-icon-wrapper at-share-btn at-svc-messenger bg-white kalles-social-media__btn">
+                                            <a href="https://wa.me/+97433306077" class="at-icon-wrapper at-share-btn at-svc-messenger bg-white kalles-social-media__btn">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="at-icon at-icon-messenger">
                                                     <g>
                                                         <path d="M16 6C9.925 6 5 10.56 5 16.185c0 3.205 1.6 6.065 4.1 7.932V28l3.745-2.056c1 .277 2.058.426 3.155.426 6.075 0 11-4.56 11-10.185C27 10.56 22.075 6 16 6zm1.093 13.716l-2.8-2.988-5.467 2.988 6.013-6.383 2.868 2.988 5.398-2.987-6.013 6.383z" fill-rule="evenodd"></path>
@@ -215,7 +213,7 @@
                     <div class="panel entry-content sp-tab des_mb_2 des_style_1 active" id="tab_product_description">
                         <div class="js_ck_view"></div>
                         <div class="heading bgbl dn">
-                            <a class="tab-heading flex al_center fl_between pr cd chp fwm" href="#tab_product_description"><span class="txt_h_tab">Description</span><span class="nav_link_icon ml__5"></span></a>
+                            <a class="tab-heading flex al_center fl_between pr cd chp fwm" href="#tab_product_description"><span class="txt_h_tab">Description</span><span style="background: #861f3d !important;" class="nav_link_icon ml__5"></span></a>
                         </div>
                         <div class="sp-tab-content">
                             <div class="row al_center">
@@ -230,8 +228,8 @@
                                             <div class="tc">
                                                 <i class="pegk pe-7s-car fs__40"></i>
                                                 <div class="info-box-content">
-                                                    <h4 class="box-title">FREE SHIPPING</h4>
-                                                    <span class="box-inner cb">Free shipping on all US order or order above $100</span>
+                                                    <h4 class="box-title">FAST DELIVERY IN QATAR</h4>
+                                                    <span class="box-inner cb">We deliver within 24-48 hours</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -248,8 +246,8 @@
                                             <div class="tc">
                                                 <i class="pegk pe-7s-refresh fs__40"></i>
                                                 <div class="info-box-content">
-                                                    <h4 class="box-title">30 DAYS RETURN</h4>
-                                                    <span class="box-inner cb">Simply return it within 30 days for an exchange</span>
+                                                    <h4 class="box-title">7 DAYS RETURN</h4>
+                                                    <span class="box-inner cb">Simply return it as received within 7 days for an exchange</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -257,8 +255,8 @@
                                             <div class="tc">
                                                 <i class="pegk pe-7s-door-lock fs__40"></i>
                                                 <div class="info-box-content">
-                                                    <h4 class="box-title">100% PAYMENT SECURE</h4>
-                                                    <span class="box-inner cb">We ensure secure payment with PEV</span>
+                                                    <h4 class="box-title">CASH ON DELIVERY</h4>
+                                                    <span class="box-inner cb">Shop safely with confidence</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -269,145 +267,6 @@
                     </div>
                     <div class="panel entry-content sp-tab des_mb_2 des_style_1 dn" id="tab_reviews_product">
                         <div class="js_ck_view"></div>
-                        <div class="heading bgbl dn">
-                            <a class="tab-heading flex al_center fl_between pr cd chp fwm" href="#tab_reviews_product"><span class="txt_h_tab">Reviews</span><span class="nav_link_icon ml__5"></span></a>
-                        </div>
-                        <div class="sp-tab-content">
-                            <div class="lt-block-reviews">
-                                <div class="r--desktop r--tablet w__100">
-                                    <div id="r--masonry-theme" class="r--show-part-preview">
-                                        <div class="r--masonry-theme">
-                                            <div class="header-v1 masonry-header">
-                                                <div class="r--header">
-                                                    <div class="r--overview">
-                                                        <div class="r--overview-left">
-                                                            <div class="r--star-block r--star-850">
-                                                                <span class="r--title-average">Average</span>
-                                                                <span class="r--stars_average">4.8</span>
-                                                                <div class="r--stars cpl">
-                                                                    <div class="kalles-rating-result">
-                                                                        <span class="kalles-rating-result__pipe">
-                                                                            <span class="kalles-rating-result__start kalles-rating-result__start--big"></span>
-                                                                            <span class="kalles-rating-result__start kalles-rating-result__start--big"></span>
-                                                                            <span class="kalles-rating-result__start kalles-rating-result__start--big"></span>
-                                                                            <span class="kalles-rating-result__start kalles-rating-result__start--big active"></span>
-                                                                            <span class="kalles-rating-result__start kalles-rating-result__start--big"></span>
-                                                                        </span>
-                                                                    </div>
-                                                                    <span class="r--total-view">13 <span>reviews</span></span>
-                                                                </div>
-                                                            </div>
-                                                            <table class="r--rateList r--rate-850">
-                                                                <tr class="">
-                                                                    <td class="r--rate-name">
-                                                                        <div>Excellent</div>
-                                                                    </td>
-                                                                    <td class="r--rate-numeral">
-                                                                        <span class="r--total-bar-default">
-                                                                            <span class="r--bar_bak_gray width__93">
-                                                                                <span class="r--bar-active">
-                                                                                    <span class="r--rate-percent-default">12
-                                                                                        <span class="r--rate-after"></span> <span class="r--rate-before"></span>
-                                                                                    </span>
-                                                                                </span>
-                                                                            </span>
-                                                                        </span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class="r--disable">
-                                                                    <td class="r--rate-name">
-                                                                        <div>Very Good</div>
-                                                                    </td>
-                                                                    <td class="r--rate-numeral">
-                                                                        <span class="r--total-bar-default">
-                                                                            <span class="r--bar_bak_gray">
-                                                                                <span class="r--bar-active r--noneBack">
-                                                                                    <span class="r--rate-percent-default">0
-                                                                                        <span class="r--rate-after"></span> <span class="r--rate-before"></span>
-                                                                                    </span>
-                                                                                </span>
-                                                                            </span>
-                                                                        </span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class="">
-                                                                    <td class="r--rate-name">
-                                                                        <div>Average</div>
-                                                                    </td>
-                                                                    <td class="r--rate-numeral">
-                                                                        <span class="r--total-bar-default">
-                                                                            <span class="r--bar_bak_gray width__7">
-                                                                                <span class="r--bar-active">
-                                                                                    <span class="r--rate-percent-default">1
-                                                                                        <span class="r--rate-after"></span> <span class="r--rate-before"></span>
-                                                                                    </span>
-                                                                                </span>
-                                                                            </span>
-                                                                        </span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class="r--disable">
-                                                                    <td class="r--rate-name">
-                                                                        <div>Poor</div>
-                                                                    </td>
-                                                                    <td class="r--rate-numeral">
-                                                                        <span class="r--total-bar-default">
-                                                                            <span class="r--bar_bak_gray">
-                                                                                <span class="r--bar-active r--noneBack">
-                                                                                    <span class="r--rate-percent-default">0
-                                                                                        <span class="r--rate-after"></span> <span class="r--rate-before"></span>
-                                                                                    </span>
-                                                                                </span>
-                                                                            </span>
-                                                                        </span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class="r--disable">
-                                                                    <td class="r--rate-name">
-                                                                        <div>Terrible</div>
-                                                                    </td>
-                                                                    <td class="r--rate-numeral">
-                                                                        <span class="r--total-bar-default">
-                                                                            <span class="r--bar_bak_gray">
-                                                                                <span class="r--bar-active r--noneBack">
-                                                                                    <span class="r--rate-percent-default">0
-                                                                                        <span class="r--rate-after"></span> <span class="r--rate-before"></span>
-                                                                                    </span>
-                                                                                </span>
-                                                                            </span>
-                                                                        </span>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div class="r--overview-right">
-                                                            <div class="show-modal-mobile">
-                                                                <a class="r--button r--flex-center bg-yellow text-white ajax_pp_js" href="#" data-id="#popup-leave-review">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18.37" height="17.8" viewBox="0 0 21.682 21.602">
-                                                                        <g id="Symbol_32_2" data-name="Symbol 32 – 2" transform="translate(-961.98 -374.155)">
-                                                                            <path d="M0,0H4V11.2L1.937,14h0L0,11.2Z" transform="translate(979.891 381.756) rotate(40)" fill="none" stroke="#ffffff" stroke-linejoin="round" stroke-width="1"></path>
-                                                                            <path d="M0,0H4" transform="translate(972.692 390.335) rotate(40)" fill="none" stroke="#ffffff" stroke-width="1"></path>
-                                                                            <g transform="translate(981.126 380.964) rotate(40)" fill="none" stroke="#ffffff" stroke-width="1">
-                                                                                <rect width="3.128" height="1.4" stroke="none"></rect>
-                                                                                <rect x="0.5" y="0.5" width="2.128" height="0.4" fill="none"></rect>
-                                                                            </g>
-                                                                            <path d="M2858.324,3384.6h7.412" transform="translate(-1891.1 -3003.987)" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path>
-                                                                            <path d="M2858.324,3384.6h7.412" transform="translate(-1891.1 -2999.611)" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="1"></path>
-                                                                            <path d="M8.952,0H15a2,2,0,0,1,2,2V15a2,2,0,0,1-2,2H2a2,2,0,0,1-2-2V12.162" transform="translate(979.48 391.655) rotate(180)" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path>
-                                                                        </g>
-                                                                    </svg>
-                                                                    <span class="r--text-write">Write a review</span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <!-- end tab contents -->
                 </div>
@@ -490,6 +349,7 @@
               {
                   $("#cart-push").html(data.carts); 
                   $("#cart-count").html(data.total);
+                  $("#guno").html(data.total);
                   $("#cart-total").html(data.subtotal);
                  
                   

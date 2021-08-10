@@ -4,22 +4,22 @@
        <div class="loke_scroll">
            <ul class="nt_filter_block nt_filter_styleck css_ntbar" data-filter_condition="or">
                <li id="1" price="50,100">
-                   <a href="#" aria-label="Narrow selection to products matching tag price $50-$100">QAR50-QAR100</a>
+                   <a href="#" aria-label="Narrow selection to products matching tag price $50-$100">0-250</a>
                </li>
                <li id="2">
-                   <a href="#" aria-label="Narrow selection to products matching tag price $100-$150">QAR100-QAR150</a>
+                   <a href="#" aria-label="Narrow selection to products matching tag price $100-$150">250-500</a>
                </li>
                <li id="3">
-                   <a href="#" aria-label="Narrow selection to products matching tag price $150-$200">QAR150-QAR200</a>
+                   <a href="#" aria-label="Narrow selection to products matching tag price $150-$200">500-1000</a>
                </li>
                <li id="4">
-                   <a href="#" aria-label="Narrow selection to products matching tag price $250-$300">QAR250-QAR300</a>
+                   <a href="#" aria-label="Narrow selection to products matching tag price $250-$300">1000-2000</a>
                </li>
                <li id="5">
-                   <a href="#" aria-label="Narrow selection to products matching tag price $350-$400">QAR350-QAR400</a>
+                   <a href="#" aria-label="Narrow selection to products matching tag price $350-$400">3000-4000</a>
                </li>
                <li id="6">
-                   <a href="#" aria-label="Narrow selection to products matching tag price $450-$500">QAR450-QAR500</a>
+                   <a href="#" aria-label="Narrow selection to products matching tag price $450-$500"> >4000 <span class="dn">-99999999999999999999999999999999999999</span> </a>
                </li>
            </ul>
        </div>

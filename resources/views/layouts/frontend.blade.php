@@ -30,7 +30,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/single-product.css') }}">
     
     <link rel="stylesheet" href="{{ asset('assets/css/shopping-cart.css') }}">
-
     @yield('css')
 </head>
 <body class="lazy_icons btnt4_style_2 zoom_tp_2 css_scrollbar template-collection js_search_true cart_pos_side kalles_toolbar_true hover_img2 swatch_style_rounded swatch_list_size_small label_style_rounded wrapper_full_width header_sticky_true hide_scrolld_true des_header_8 top_bar_true prs_bordered_grid_1 search_pos_full lazyload js_search_type">
@@ -103,7 +102,7 @@
                                     @endauth
                                     <div class="icon_cart pr">
                                         <a class="push_side pr cb chp db" href="#" data-id="#nt_cart_canvas">
-                                            <i class="las la-shopping-cart pr"><span id="cart-count" class="op__0 ts_op pa tcount bgb br__50 cw tc">{{ $total }}</span></i>
+                                            <i class="las la-shopping-cart pr"><span id="guno" class="op__0 ts_op pa tcount bgb br__50 cw tc">{{ $total }}</span></i>
                                         </a>
                                     </div>
                                 </div>
@@ -137,7 +136,7 @@
                                     <ul id="nt_menu_id" class="nt_menu in_flex wrap al_center">
                                       
                                         <li class="type_mega menu_wid_cus menu-item has-children menu_has_offsets menu_center pos_center">
-                                            <a class="lh__1 flex al_center pr" href="{{ route('frontend.products') }}">Product</a>
+                                            <a class="lh__1 flex al_center pr" href="{{ url('/') }}">Home</a>
                                         </li>
                                     
                                     </ul>
@@ -183,7 +182,7 @@
                                     <div class="footer-contact">
                                         <p>
                                             <a class="d-block" href="index.html">
-                                                <img class="w__100 mb__15 lazyload max-width__95px" src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20220%2066%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="Kalles Template" data-src="{{ asset('web_images/logo.png') }}">
+                                                <img class="w__100 mb__15 lazyload max-width__95px" src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20220%2066%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="Garey store" data-src="{{ asset('web_images/logo.png') }}">
                                             </a>
                                         </p>
                                         <p>
@@ -196,25 +195,13 @@
                                         </p>
                                         <p><i class="pegk pe-7s-call"></i> <span>+974 33306077 </span></p>
                                         <div class="nt-social">
-                                            <a href="https://www.facebook.com/gareyapp" class="facebook cb ttip_nt tooltip_top">
+                                            <a href="https://www.facebook.com/gareystore" class="facebook cb ttip_nt tooltip_top">
                                                 <span class="tt_txt">Follow on Facebook</span>
                                                 <i class="facl facl-facebook"></i>
                                             </a>
-                                            <a href="https://twitter.com" class="twitter cb ttip_nt tooltip_top">
-                                                <span class="tt_txt">Follow on Twitter</span>
-                                                <i class="facl facl-twitter"></i>
-                                            </a>
-                                            <a href="https://www.instagram.com" class="instagram cb ttip_nt tooltip_top">
+                                            <a href="https://www.instagram.com/gareyqatar" class="instagram cb ttip_nt tooltip_top">
                                                 <span class="tt_txt">Follow on Instagram</span>
                                                 <i class="facl facl-instagram"></i>
-                                            </a>
-                                            <a href="https://www.linkedin.com" class="linkedin cb ttip_nt tooltip_top">
-                                                <span class="tt_txt">Follow on Linkedin</span>
-                                                <i class="facl facl-linkedin"></i>
-                                            </a>
-                                            <a href="https://www.pinterest.com" class="pinterest cb ttip_nt tooltip_top">
-                                                <span class="tt_txt">Follow on Pinterest</span>
-                                                <i class="facl facl-pinterest"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -248,22 +235,13 @@
                                 <div class="menu_footer widget_footer">
                                     <ul class="menu">
                                         <li class="menu-item">
-                                            <a href="about-us.html">About Us</a>
+                                            <a href="{{ route('frontend.about') }}">About Us</a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="{{ route('frontend.contact') }}">Contact Us</a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="{{ route('frontend.terms') }}">Terms &amp; Conditions</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="returns-exchanges.html">Returns &amp; Exchanges</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="shipping-delivery.html">Shipping &amp; Delivery</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="privacy-policy.html">Privacy Policy</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -277,23 +255,19 @@
                                 </h3>
                                 <div class="menu_footer widget_footer">
                                     <ul class="menu">
-                                        <li class="menu-item">
-                                            <a href="store-location.html">Store Location</a>
+                                        
+                                       @guest
+                                       <li class="menu-item">
+                                        <a class="cb chp db push_side" style="cursor: pointer;" data-id="#nt_login_canvas">My Orders</a>
                                         </li>
+                                       @endguest
+                                       @auth
+                                       <li class="menu-item">
+                                        <a href="{{ route('dashboard') }}">My Orders</a>
+                                     </li>
+                                       @endauth
                                         <li class="menu-item">
-                                            <a href="blog-grid.html">Latest News</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="my-account.html">My Account</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="size-guide.html">Size Guide</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="faqs-2.html">FAQs 2</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="faqs.html">FAQs</a>
+                                            <a href="{{ route('frontend.faqs') }}">FAQs</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -306,11 +280,11 @@
                                 </h3>
                                 <div class="widget_footer newl_des_1">
                                     <a href="https://play.google.com/store/apps/details?id=com.appix.garey" target="_blank">
-                                        <img style="margin-bottom: 20px;" src="https://i.postimg.cc/VkPXWgmQ/image.png" alt="">
+                                        <img style="margin-bottom: 20px;width: 50%" src="https://i.postimg.cc/VkPXWgmQ/image.png" alt="">
                                     </a>
                                         
                                     <a href="https://apps.apple.com/app/id1495042185" target="_blank">
-                                    <img src="https://i.postimg.cc/nhKBRmhs/image.png" alt="">
+                                    <img style="width: 50%" src="https://i.postimg.cc/nhKBRmhs/image.png" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -324,14 +298,14 @@
                 <div class="container pr tc">
                     <div class="row">
                         <div class="col-lg-6 col-md-12 col-12 col_1">Copyright © 2021
-                            <span class="cp">Garey Trading Company in Qatar,CR.132476</span> all rights reserved.</div>
-                        <div class="col-lg-6 col-md-12 col-12 col_2">
+                            Garey Trading Company in Qatar,CR.132476 all rights reserved.</div>
+                        {{-- <div class="col-lg-6 col-md-12 col-12 col_2">
                             <ul id="footer-menu" class="clearfix">
                                 <li class="menu-item"><a href="{{ route('frontend.products') }}">Shop</a></li>
                                 <li class="menu-item"><a href="#">About Us</a></li>
                                 <li class="menu-item"><a href="{{ route('frontend.contact') }}">Contact</a></li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -345,7 +319,7 @@
 <!--end mask overlay-->
 
 <!--quick view-->
- <div id="quick-view-tpl" class="dn">
+ {{-- <div id="quick-view-tpl" class="dn">
     <div class="product-quickview single-product-content img_action_zoom kalles-quick-view-tpl">
         <div class="row product-image-summary">
             <div class="col-lg-7 col-md-6 col-12 product-images pr oh">
@@ -526,7 +500,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>  --}}
 <!--end quick view-->
 
 <!--quick shop-->
@@ -681,9 +655,9 @@
                         <div id="cart-total" class="cart_tot_price">QAR {{ $subtotal }}</div>
                     </div>
                 </div>
-                <p class="txt_tax_ship mb__5 fs__12">Taxes, shipping and discounts codes calculated at checkout</p>
+                <p class="txt_tax_ship mb__5 fs__12">We deliver within 24-48hrs, the delivery team will contact you for location in Qatar.</p>
                 <p class="pr db mb__5 fs__12">
-                    <input type="checkbox" id="cart_agree" class="js_agree_ck mr__5" name="ck_lumise"><label for="cart_agree">I agree with the terms and conditions.</label>
+                    <input type="checkbox" required id="cart_agree" class="js_agree_ck mr__5" name="ck_lumise"><label for="cart_agree">I agree with the terms and conditions.</label>
                     <svg class="dn scl_selected" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M9 20l-7-7 3-3 4 4L19 4l3 3z"></path>
                     </svg>
@@ -812,7 +786,7 @@
                 <i class="close_pp pegk pe-7s-close ts__03 cd pa r__0"></i>
                 <div class="ld_bar_search"></div>
             </form>
-            <div class="search_header__prs fwsb cd tc">
+            {{-- <div class="search_header__prs fwsb cd tc">
                 <span class="h_suggest">Need some inspiration?</span><span class="h_result dn">Search Result:</span><span class="h_results dn">Search Results:</span>
             </div>
             <div class="search_header__content mini_cart_content fixcl-scroll widget">
@@ -880,7 +854,7 @@
                         @endforeach
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
@@ -992,9 +966,10 @@
 <div id="kalles-section-toolbar_mobile" class="kalles-section">
     <div class="kalles_toolbar kalles_toolbar_label_true ntpf r__0 l__0 b__0 flex fl_between al_center">
         <div class="type_toolbar_shop kalles_toolbar_item">
-            <a href="{{ route('frontend.products') }}">
-                <span class="toolbar_icon"></span>
-                <span class="kalles_toolbar_label">Shop</span>
+            <a href="{{ url('/') }}">
+                {{-- <span class="toolbar_icon"></span> --}}
+                <span style="font-size: 25px" class="las la-home"></span>
+                <span class="kalles_toolbar_label">Home</span>
             </a>
         </div>
         {{-- <div class="type_toolbar_filter kalles_toolbar_item dn">
@@ -1007,7 +982,7 @@
         <div class="type_toolbar_cart kalles_toolbar_item">
             <a href="#" class="push_side" data-id="#nt_cart_canvas">
 				<span class="toolbar_icon">
-					{{-- <span id="cart-count-tool" class="toolbar_count">{{ $total }}</span> --}}
+					<span id="cart-count" class="toolbar_count">{{ $total }}</span>
 				</span>
                 <span class="kalles_toolbar_label">Cart</span>
             </a>
@@ -1040,14 +1015,15 @@
 <div id="nt_menu_canvas" class="nt_fk_canvas nt_sleft dn lazyload">
     <i class="close_pp pegk pe-7s-close ts__03 cd"></i>
     <div class="mb_nav_tabs flex al_center mb_cat_true">
-        <div class="mb_nav_title pr mb_nav_ul flex al_center fl_center active" data-id="#kalles-section-mb_nav_js">
-            <span class="db truncate">Menu</span>
-        </div>
-        <div class="mb_nav_title pr flex al_center fl_center" data-id="#kalles-section-mb_cat_js">
+        <div class="mb_nav_title pr flex al_center fl_center active" data-id="#kalles-section-mb_cat_js">
             <span class="db truncate">Categories</span>
         </div>
+        <div class="mb_nav_title pr mb_nav_ul flex al_center fl_center" data-id="#kalles-section-mb_nav_js">
+            <span class="db truncate">Menu</span>
+        </div>
+   
     </div>
-    <div id="kalles-section-mb_nav_js" class="mb_nav_tab active">
+    <div id="kalles-section-mb_nav_js" class="mb_nav_tab ">
         <div id="kalles-section-mb_nav" class="kalles-section">
             <ul id="menu_mb_ul" class="nt_mb_menu">
             
@@ -1080,7 +1056,7 @@
             </ul>
         </div>
     </div>
-    <div id="kalles-section-mb_cat_js" class="mb_nav_tab">
+    <div id="kalles-section-mb_cat_js" class="mb_nav_tab active">
         <div id="kalles-section-mb_cat" class="kalles-section">
             <ul id="menu_mb_cat" class="nt_mb_menu">
                
@@ -1100,7 +1076,7 @@
 <!-- end mobile menu -->
 
 <!--discount promotion popup-->
-<div id="kalles-section-promo_pr_pp" class="kalles-section mfp-hide dn">
+{{-- <div id="kalles-section-promo_pr_pp" class="kalles-section mfp-hide dn">
     <div class="js_lz_pppr popup_prpr_wrap container bgw mfp-with-anim" data-stt='{ "pp_version": 1,"day_next": 1 }'>
         <div class="wrap_title">
             <h3 class="section-title tc pr flex fl_center al_center fs__24 title_2">
@@ -1140,7 +1116,7 @@
             @endforeach
         </div>
     </div>
-</div>
+</div> --}}
 <!--end discount promotion popup-->
 
 <!-- back to top button-->
@@ -1278,8 +1254,8 @@
               success: function(data)
               {
                   $("#cart-push").html(data.carts); 
+                  $("#guno").html(data.total);
                   $("#cart-count").html(data.total);
-                  $("#cart-count-tool").html(data.total);
                   $("#cart-total").html(data.subtotal);
                   
               } 

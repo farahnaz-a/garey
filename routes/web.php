@@ -34,6 +34,8 @@ Route::get('/otn', [FrontendController::class, 'otn'])->name('frontend.otn');
 Route::get('/nto', [FrontendController::class, 'nto'])->name('frontend.nto');
 Route::get('/contact-us', [FrontendController::class, 'contact'])->name('frontend.contact');
 Route::get('/terms-and-conditions', [FrontendController::class, 'terms'])->name('frontend.terms');
+Route::get('/faqs', [FrontendController::class, 'faqs'])->name('frontend.faqs');
+Route::get('/about-us', [FrontendController::class, 'about'])->name('frontend.about');
 
 // Cart Controller 
 Route::any('/cart-save', [CartController::class, 'store'])->name('cart.store');

@@ -3644,10 +3644,13 @@ body .tooltip_bottom_right:hover .tt_txt {
     animation: 1.35s animate_sticky;
 }
 
+
+
 @media (min-width: 641px) {
     .cat_sortby:before {
         display: none;
     }
+
 
     .nt_sortby {
         z-index: 5;

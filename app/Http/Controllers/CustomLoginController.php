@@ -31,7 +31,7 @@ class CustomLoginController extends Controller
         'firstname_en' => 'required', 
         'lastname_en' => 'required', 
         'email' => 'required|email|unique:users',
-        'password' => 'required|min:8', 
+        'password' => 'required|min:6', 
        ]);
 
 

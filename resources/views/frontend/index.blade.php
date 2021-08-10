@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title')
-    {{ config('app.name') }} | Home Page
+    Garey Store for Electronics in Qatar | Home Page
 @endsection
 
 @section('content')
@@ -19,10 +19,9 @@
                             <div class="pa pa_txts">
                                 <h3 class="mt__0 mg__0 lh__1" style="color: white;">{{ $banner->description }}</h3>
                                 <div class="kalles-electronic-vertical__slide-banner-br imtt4_space"></div>
-                                <a class="imtt4_btn button pe_auto round_false btn_icon_false" href="shop.html">shop now</a>
+                                <a class="imtt4_btn button pe_auto round_false btn_icon_false" href="{{ route('frontend.products') }}">shop now</a>
                             </div>
                         </div>
-                        <a href="shop-hidden-sidebar.html" class="pa t__0 l__0 b__0 r__0"></a>
                     </div>
                 </div>
             </div>
@@ -38,8 +37,8 @@
                     <div class="nt_shipping nt_icon_deafult tl row no-gutters al_center_">
                         <div class="col-auto icon large csi"><i class="las la-life-ring"></i></div>
                         <div class="col content">
-                            <h3 class="title cd fs__14 mg__0 mb__5">SUPPORT 24/7</h3>
-                            <p class="mg__0">we support 24 hours a day</p>
+                            <h3 class="title cd fs__14 mg__0 mb__5">CUSTOMER SUPPORT</h3>
+                            <p class="mg__0">We are here to support</p>
                         </div>
                     </div>
                 </div>
@@ -47,8 +46,8 @@
                     <div class="nt_shipping nt_icon_deafult tl row no-gutters al_center_">
                         <div class="col-auto icon large csi"><i class="las la-sync-alt"></i></div>
                         <div class="col content">
-                            <h3 class="title cd fs__14 mg__0 mb__5">30 DAYS RETURN</h3>
-                            <p class="mg__0">you have 30 days to return</p>
+                            <h3 class="title cd fs__14 mg__0 mb__5">DELIVERY IN 24hrs</h3>
+                            <p class="mg__0">Delivery anywhere in Qatar</p>
                         </div>
                     </div>
                 </div>
@@ -56,8 +55,8 @@
                     <div class="nt_shipping nt_icon_deafult tl row no-gutters al_center_">
                         <div class="col-auto icon large csi"><i class="las la-user-circle"></i></div>
                         <div class="col content">
-                            <h3 class="title cd fs__14 mg__0 mb__5">PAYMENT 100% SECURE</h3>
-                            <p class="mg__0">Payment 100% Secure</p>
+                            <h3 class="title cd fs__14 mg__0 mb__5">CASH ON DELIVERY</h3>
+                            <p class="mg__0">Pay when you receive</p>
                         </div>
                     </div>
                 </div>

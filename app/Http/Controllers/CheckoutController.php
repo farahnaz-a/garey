@@ -54,8 +54,14 @@ class CheckoutController extends Controller
 
           Cart::find($item->id)->delete();
 
-          return redirect()->route('dashboard')->withMessage('Order Placed Succesfully!!!');
-      }
+        }
+          if(!Auth::user()->mobile_no)
+          {
+              User::find(Auth::id())->update([
+                'mobile_no' => $request->mobile_no,
+              ]);
+          }
+        return redirect()->route('dashboard')->withMessage('Order Placed Succesfully!!!');
 
       
        }
@@ -91,6 +97,12 @@ class CheckoutController extends Controller
             }
         
                 Auth::login($user);
+
+                if(!$user->mobile_no)
+                {
+                      $user->mobile_no = $request->mobile_no;
+                      $user->save();
+                }
             return redirect()->route('dashboard')->withMessage('Order Placed !! Looks like your number is already registered with our IOS and Android app. We have updated your email address to our system. Now you can login to our website with the same password you use on our apps. Thank you');
 
 

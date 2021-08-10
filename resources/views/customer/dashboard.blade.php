@@ -22,18 +22,19 @@
           <div class="table table-responsive">
               <table class="table-striped table-bordered">
                   <tr>
-                      <th>Sl.</th>
+                      
+                     <th>Date</th>
                       <th>Order #</th>
                       <th>Products</th>
                       <th>Order Total</th>
                       <th>Delivery Fee</th>
                       <th>Total</th>
                       <th>Status</th>
-                      <th>Date</th>
                   </tr>
                   @foreach ($orders as $item)
                   <tr>
-                    <td>{{ $loop->index + 1 }}</td>
+                      
+                    <td>{{ $item->order_date }}</td>
                     <td>#{{ $item->id }}</td>
                     <td>
                         @php
@@ -58,7 +59,6 @@
                     <td>QAR 20.00</td>
                     <td>QAR {{ $item->total_payable }}</td>
                     <td>{{ $item->status }}</td>
-                    <td>{{ $item->order_date }}</td>
                 </tr>
 
                   @endforeach
