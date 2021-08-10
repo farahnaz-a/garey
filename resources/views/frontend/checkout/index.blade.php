@@ -5,13 +5,36 @@ Garey Store for Electronics in Qatar | Checkout
 @endsection
 
 @section('content')
+                <!-- breadcrumb -->
+                <div class="bgbl pt__20 pb__20 lh__1">
+                    <div class="container">
+                        <div class="row al_center">
+                            <div class="col">
+                                 <nav class="sp-breadcrumb">
+                                    <a href="{{ url('/') }}">Home</a>
+                                    {{-- <i class="facl facl-angle-right"></i> --}}
+                                    <i class="facl facl-angle-right"></i> 
+                                    <a href="{{ route('cart.index') }}">Cart</a>
+                                    <i class="facl facl-angle-right"></i>
+                                    <a href="{{ route('checkout.index') }}">Checkout</a>
+                                </nav> 
+                            </div>
+                          {{--  <div class="col-auto flex al_center">
+                                <a href="product-detail-layout-01.html" class="pl__5 pr__5 fs__18 cd chp ttip_nt tooltip_bottom_left"><i class="las la-angle-left"></i><span class="tt_txt">Cream women pants</span></a>
+                                <a href="product-detail-layout-01.html" class="pl__5 pr__5 fs__20 cd chp ttip_nt tooltip_bottom_left"><i class="fwb iccl iccl-grid fs__15"></i><span class="tt_txt">Back to New Arrival</span></a>
+                                <a href="product-detail-layout-01.html" class="pl__5 pr__5 fs__18 cd chp ttip_nt tooltip_bottom_left"><i class="las la-angle-right"></i><span class="tt_txt">Short Sleeved Hoodie</span></a>
+                            </div>   --}}
+                        </div>
+                    </div>
+                </div>
+                <!-- end breadcrumb -->
    <!--cart section-->
    <div class="kalles-section cart_page_section container mt__60">
     <div class="frm_cart_page check-out_calculator">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-7">
                 <div class="checkout-section">
-                    <h3 class="checkout-section__title" style="color : #861f3d !important;">Delivery details</h3>
+                    <h3 class="checkout-section__title">Delivery details</h3>
                     <form action="{{ route('checkout.store') }}" method="POST">
                         @csrf
                     <div class="row">
@@ -92,7 +115,7 @@ Garey Store for Electronics in Qatar | Checkout
             </div>
             <div class="col-12 col-md-6 col-lg-5 mt__50 mb__80 mt-md-0 mb-md-0">
                 <div class="order-review__wrapper">
-                    <h3 class="order-review__title" style="color : #861f3d !important;">Your order</h3>
+                    <h3 class="order-review__title">Your order</h3>
                     <div class="checkout-order-review">
                         <table class="checkout-review-order-table">
                             <thead>

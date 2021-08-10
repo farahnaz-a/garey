@@ -997,7 +997,7 @@
            @auth
            <a href="{{ route('dashboard') }}" class="push_side">
             <span class="toolbar_icon"></span>
-            <span class="kalles_toolbar_label">Account</span>
+            <span class="kalles_toolbar_label">My orders</span>
              </a>
            @endauth
         </div>
@@ -1027,14 +1027,14 @@
         <div id="kalles-section-mb_nav" class="kalles-section">
             <ul id="menu_mb_ul" class="nt_mb_menu">
             
-                <li class="menu-item menu-item-has-children only_icon_false">
+                {{-- <li class="menu-item menu-item-has-children only_icon_false">
                     <a href="shop-filter-sidebar.html"><span class="nav_link_txt flex al_center">Shop</span><span class="nav_link_icon ml__5"></span></a>
                     <ul class="sub-menu" style="display: none;">
                         <li class="menu-item">
                             <a href="{{ route('frontend.products') }}">Products List</a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="menu-item menu-item-btns menu-item-acount">
                     @guest
                     <a href="#" class="push_side" data-id="#nt_login_canvas"><span class="iconbtns">Login/Register</span></a>

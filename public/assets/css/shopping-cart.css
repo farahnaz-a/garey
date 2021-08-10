@@ -200,7 +200,7 @@
 .order-review__title::after,
 .checkout-section__title::after {
     content: ' ';
-    border-bottom: 2px solid var(--main-color);
+    border-bottom: 2px solid #861f3d;
     display: block;
     width: 20%;
     position: absolute;

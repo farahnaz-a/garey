@@ -22,7 +22,7 @@ class FrontendController extends Controller
         Artisan::call('route:clear');
         return view('frontend.index', [
             
-            'banner'      => Banner::first(),
+            'banner'      => Banner::inRandomOrder()->first(),
             'newArrivals' => Product::where('status', 'active')->where('created_at', '>', Carbon::now()->subDays(30))->get(),
             'recommended' => Product::where('status', 'active')->where('display_as', 'recommended')->get(),
             'bestValues'  => Product::where('status', 'active')->where('display_as', 'best price')->get(),

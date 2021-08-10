@@ -19,7 +19,7 @@
                             <div class="pa pa_txts">
                                 <h3 class="mt__0 mg__0 lh__1" style="color: white;">{{ $banner->description }}</h3>
                                 <div class="kalles-electronic-vertical__slide-banner-br imtt4_space"></div>
-                                <a class="imtt4_btn button pe_auto round_false btn_icon_false" href="{{ route('frontend.products') }}">shop now</a>
+                                <a class="imtt4_btn button pe_auto round_false btn_icon_false" href="{{ route('frontend.productbysubcategory', $banner->subcat_id) }}">shop now</a>
                             </div>
                         </div>
                     </div>
